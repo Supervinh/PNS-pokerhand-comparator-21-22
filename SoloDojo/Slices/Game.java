@@ -1,3 +1,5 @@
+package SoloDojo.Slices;
+
 public class Game {
    private Hand hand1, hand2;
 
@@ -7,7 +9,7 @@ public class Game {
     }
 
     public Hand compete(){
-        if (this.hand1.getCarte().getValeur() > this.hand2.getCarte().getValeur()){
+        if (this.hand1.getCards().get(0).getForce() > this.hand2.getCards().get(0).getForce()){
             return this.hand1;
         }
         return this.hand2;
