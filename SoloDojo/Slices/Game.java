@@ -1,22 +1,31 @@
 package SoloDojo.Slices;
 
+import java.util.ArrayList;
+
 public class Game {
-   private Hand hand1, hand2;
+    public static int numberofPlayers;
+    public static int numberofCards;
+    private ArrayList<Hand> hands = new ArrayList<>();
 
-    public Game(Hand hand1, Hand hand2){
-        this.hand1 = hand1;
-        this.hand2 = hand2;
+    public Game(int nbp, int nbc) {
+        numberofPlayers = nbp;
+        numberofCards = nbc;
     }
 
-    public Hand compete(){
-        if (this.hand1.getCards().get(0).getForce() > this.hand2.getCards().get(0).getForce()){
-            return this.hand1;
+
+    public void showHands() {
+        for (Hand hand : this.hands) {
+            System.out.println(hand);
         }
-        return this.hand2;
     }
 
-
-    public String toString(){
-        return this.hand1 + "\n" + this.hand2;
+    @Override
+    public String toString() {
+        return ResultPrinter.getResult(this.hands.get(0));
     }
+    
+    public ArrayList<Hand> getHands() {
+        return hands;
+    }
+        
 }

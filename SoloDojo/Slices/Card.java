@@ -25,4 +25,22 @@ public class Card {
     public int getForce() {
         return force;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Card other = (Card) obj;
+        if (force != other.force)
+            return false;
+        return true;
+    }
+
+    public int compareTo(Card c2) {
+        return this.getForce()-c2.getForce();
+    }
 }

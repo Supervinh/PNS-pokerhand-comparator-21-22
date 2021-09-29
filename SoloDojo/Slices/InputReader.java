@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class InputReader {
 
-    public static String readGame(){
-        Scanner sc = new Scanner(System.in);
-        String message =  sc.nextLine();
-        sc.close();
-        return message;
+    public static final Scanner CONSOLE = new Scanner(System.in);
+
+    public static String inpuString(){
+        return CONSOLE.nextLine();
+    }
+
+    public static int inputInt() {
+        return CONSOLE.nextInt();
     }
 }

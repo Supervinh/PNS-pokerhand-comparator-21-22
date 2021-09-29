@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Hand {
     private static int playerNumber = 0;
     private String playerName = "Player ";
-    private ArrayList<Card> cards;
+    private ArrayList<Card> cards = new ArrayList<>();
     
     public Hand(ArrayList<Card> cards) {
         this.cards = cards;
@@ -13,9 +13,13 @@ public class Hand {
         this.playerName += Hand.playerNumber;
     }
 
+    public void sortHand() {
+        this.cards.sort(new CardComparator());
+    }
+
     @Override   
     public String toString() {
-        return this.playerName + " " + this.cards;
+        return this.playerName + " - " + this.cards;
     }
 
     public String getPlayerName() {
@@ -24,5 +28,10 @@ public class Hand {
 
     public ArrayList<Card> getCards() {
         return this.cards;
+    }
+
+    public int compareTo(Hand h2) {
+        // A Faire
+        return 0;
     }
 }
