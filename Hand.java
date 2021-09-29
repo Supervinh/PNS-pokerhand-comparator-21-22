@@ -11,7 +11,7 @@ public class Hand {
         this.playerName += Hand.playerNumber;
     }
 
-    @Override
+    @Override   
     public String toString() {
         return this.playerName + " " + card;
     }
