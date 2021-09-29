@@ -12,6 +12,10 @@ public class GameRun {
         System.out.flush(); 
     }
 
+    static public void ShowWinner(Hand h) {
+        System.out.print("The Winner is " + h);
+    }
+
     public static void main(String[] args) {
         clearCmd();
         int nbCards=0, force = 0;
