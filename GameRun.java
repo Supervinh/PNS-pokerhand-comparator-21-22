@@ -1,5 +1,6 @@
 package SoloDojo.Slices;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameRun {
@@ -11,29 +12,36 @@ public class GameRun {
         System.out.flush(); 
     }
 
-    static public void ShowWinner(Hand h1, Hand h2) {
-        System.out.print("The Winner is ");
-        if (h1.getCard().getForce() > h2.getCard().getForce()) {
-            System.out.println(h1);
-        } else {
-            System.out.println(h2);
-        }
+    static public void ShowWinner(Hand h) {
+        System.out.print("The Winner is " + h);
     }
 
     public static void main(String[] args) {
         clearCmd();
-        int force = 0;
-        System.out.print("Player 1 enter Card: ");
-        force = CONSOLE.nextInt();
-        Hand player1 = new Hand(new Card(force));
+        int nbCards=0, force = 0;
+        ArrayList<Card> cards = new ArrayList<>();
+        System.out.print("Player 1 - Enter number of Cards: ");
+        nbCards = CONSOLE.nextInt();
+        for (int i = 0; i < nbCards; i++) {
+            System.out.print("Card " + (i+1) + " : ");
+            force = CONSOLE.nextInt();
+            cards.add(new Card(force));
+            
+        }
+        Hand player1 = new Hand(cards);
+        cards.clear();
 
-        System.out.print("Player 2 enter Card: ");
-        force = CONSOLE.nextInt();
-        Hand player2 = new Hand(new Card(force));
+        for (int i = 0; i < nbCards; i++) {
+            System.out.print("Card " + (i+1) + " : ");
+            force = CONSOLE.nextInt();
+            cards.add(new Card(force));
+            
+        }
+        Hand player2 = new Hand(cards);
 
         clearCmd();
         System.out.println(player1);
         System.out.println(player2);
-        ShowWinner(player1, player2);
+        ShowWinner(player1);
     }
 }

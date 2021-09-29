@@ -1,26 +1,28 @@
 package SoloDojo.Slices;
 
+import java.util.ArrayList;
+
 public class Hand {
     private static int playerNumber = 0;
     private String playerName = "Player ";
-    private Card card;
+    private ArrayList<Card> cards;
     
-    public Hand(Card card) {
-        this.card = card;
+    public Hand(ArrayList<Card> cards) {
+        this.cards = cards;
         Hand.playerNumber++;
         this.playerName += Hand.playerNumber;
     }
 
     @Override   
     public String toString() {
-        return this.playerName + " " + card;
+        return this.playerName + " " + this.cards;
     }
 
     public String getPlayerName() {
         return playerName;
     }
 
-    public Card getCard() {
-        return card;
+    public ArrayList<Card> getCards() {
+        return this.cards;
     }
 }
