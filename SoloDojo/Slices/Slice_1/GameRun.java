@@ -12,12 +12,13 @@ public class GameRun {
     }
 
     static public void ShowWinner(Hand h1, Hand h2) {
-        System.out.print("The Winner is ");
+        Hand winner;
         if (h1.getCard().getForce() > h2.getCard().getForce()) {
-            System.out.println(h1);
+            winner = h1;
         } else {
-            System.out.println(h2);
+            winner = h2;
         }
+        ResultPrinter.showResult(winner);
     }
 
     public static void main(String[] args) {
