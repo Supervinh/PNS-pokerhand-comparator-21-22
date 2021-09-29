@@ -1,4 +1,6 @@
-import java.util.*;
+package SoloDojo.Slices;
+
+import java.util.Scanner;
 
 public class InputReader {
     public InputReader(){
