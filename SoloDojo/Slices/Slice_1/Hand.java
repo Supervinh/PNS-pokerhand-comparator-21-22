@@ -1,4 +1,4 @@
-package SoloDojo.Slices.Slice_1;
+package SoloDojo.Slices;
 
 public class Hand {
     private static int playerNumber = 0;
@@ -11,7 +11,7 @@ public class Hand {
         this.playerName += Hand.playerNumber;
     }
 
-    @Override
+    @Override   
     public String toString() {
         return this.playerName + " " + card;
     }

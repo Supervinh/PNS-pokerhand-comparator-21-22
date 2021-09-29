@@ -1,4 +1,4 @@
-package SoloDojo.Slices.Slice_1;
+package SoloDojo.Slices;
 
 public class Card {
     private int force;
