@@ -6,7 +6,12 @@ public class Game {
         this.hand2 = hand2;
     }
 
-    //public Hand compete(){}
+    public Hand compete(){
+        if (this.hand1.getCarte().getValeur() > this.hand2.getCarte().getValeur()){
+            return this.hand1;
+        }
+        return this.hand2;
+    }
 
 
     public String toString(){

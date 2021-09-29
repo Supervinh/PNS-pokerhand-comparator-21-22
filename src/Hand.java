@@ -10,6 +10,10 @@ public class Hand {
         this.nom = nom;
     }
 
+    public Card getCarte() {
+        return carte;
+    }
+
     public String toString(){
         return this.nom + " : " + this.carte;
     }

@@ -6,11 +6,11 @@ public class Card {
     public Card(String couleur, String symbole){
         this.couleur = couleur;
         this.symbole = symbole;
-        valeur = this.setValeur(); //on rentre sur l'entrée standard le symbole ainsi que la couleur de la carte.
+        this.valeur = this.setValeur(); //on rentre sur l'entrée standard le symbole ainsi que la couleur de la carte.
                             //il faut cependant assigner une valeur chiffré à la carte comme 13 pour roi
     }
 
-    public int setValeur(){
+    private int setValeur(){
         switch (this.symbole){
             case "2":
                 return 2;
