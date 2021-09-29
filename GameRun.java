@@ -1,4 +1,4 @@
-package SoloDojo.Slices.Slice_1;
+package SoloDojo.Slices;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package SoloDojo.Slices.Slice_1;
+package SoloDojo.Slices;
 
 public class Hand {
     private static int playerNumber = 0;
