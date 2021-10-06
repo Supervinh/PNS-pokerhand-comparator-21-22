@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Game {
    private Hand hand1, hand2;
 
@@ -6,13 +8,17 @@ public class Game {
         this.hand2 = hand2;
     }
 
-    public Hand compete(){
-        if (this.hand1.getCarte().getValeur() > this.hand2.getCarte().getValeur()){
-            return this.hand1;
+    public Optional<Hand> compete(){
+        if (this.hand1.highestCard().getValeur() < this.hand2.highestCard().getValeur()){
+            Optional<Hand> winner = Optional.ofNullable(this.hand2);
+            return winner;
         }
-        return this.hand2;
+        else if (this.hand1.highestCard().getValeur() > this.hand2.highestCard().getValeur()){
+            Optional<Hand> winner = Optional.ofNullable(this.hand1);
+            return winner;
+        }
+        return Optional.empty();
     }
-
 
     public String toString(){
         return this.hand1 + "\n" + this.hand2;

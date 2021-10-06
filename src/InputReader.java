@@ -1,9 +1,13 @@
 import java.util.*;
 
 public class InputReader {
-    public void readGame(){
+    public InputReader(){
+
+    }
+    public String readGame(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("" + sc.nextLine());
-        System.out.println("" + sc.nextLine());
+        String message =  sc.nextLine();
+        sc.close();
+        return message;
     }
 }

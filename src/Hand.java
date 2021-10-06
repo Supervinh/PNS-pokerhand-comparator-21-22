@@ -1,20 +1,29 @@
 import java.util.*;
 
 public class Hand {
-    private Card carte;
-    //private ArrayList<Card> cartes;
+    private ArrayList<Card> cartes;
     private String nom;
 
-    public Hand(Card carte, String nom){
-        this.carte = carte;
+    public Hand(ArrayList<Card> cartes, String nom){
+        this.cartes = cartes;
         this.nom = nom;
     }
 
-    public Card getCarte() {
-        return carte;
+    public Card highestCard(){
+        int max = -1;
+        for (int i = 0; i < this.cartes.size(); i++){
+            if (max < this.cartes.get(i).getValeur()){
+                max = i;
+            }
+        }
+        return this.cartes.get(max);
+    }
+
+    public ArrayList<Card> getCarte() {
+        return this.cartes;
     }
 
     public String toString(){
-        return this.nom + " : " + this.carte;
+        return this.nom + " : " + this.cartes;
     }
 }
