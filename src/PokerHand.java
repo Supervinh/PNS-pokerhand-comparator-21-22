@@ -17,7 +17,7 @@ public class PokerHand {
             players.add(new Hand(cards));
         }
 
-        Game game = new Game(players.get(0), players.get(1));
+        Game game = new Game(players);
 
         System.out.println(game);
         System.out.println("\nLa main gagnante est: ");

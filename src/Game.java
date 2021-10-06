@@ -1,26 +1,28 @@
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class Game {
-   private Hand hand1, hand2;
+   private ArrayList<Hand> hands;
    public static final int numberOfPlayers = 2;
    public static final int numberOfCards = 2;
 
-    public Game(Hand hand1, Hand hand2){
-        this.hand1 = hand1;
-        this.hand2 = hand2;
+    public Game(ArrayList<Hand> hands){
+        this.hands = hands;
     }
 
     public Optional<Hand> compete(){
-        if (this.hand1.highestCard().getValeur() < this.hand2.highestCard().getValeur()){
-            return Optional.ofNullable(this.hand2);
+//  This is Tempory
+        Hand hand1 = this.hands.get(0), hand2 = this.hands.get(1);
+        if (hand1.highestCard().getValeur() < hand2.highestCard().getValeur()){
+            return Optional.ofNullable(hand2);
         }
-        else if (this.hand1.highestCard().getValeur() > this.hand2.highestCard().getValeur()){
-            return Optional.ofNullable(this.hand1);
+        else if (hand1.highestCard().getValeur() > hand2.highestCard().getValeur()){
+            return Optional.ofNullable(hand1);
         }
         return Optional.empty();
     }
 
     public String toString(){
-        return this.hand1 + "\n" + this.hand2;
+        return this.hands.get(0).toString();
     }
 }
