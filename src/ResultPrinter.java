@@ -4,7 +4,7 @@ import static javax.swing.UIManager.get;
 
 public class ResultPrinter {
     static public void showResult (Optional<Hand> h){
-        if (get(h).isEmpty()){
+        if (h.isEmpty()){
             System.out.println("There is equality between the two hands");
         }
         else {

@@ -10,13 +10,15 @@ public class Hand {
     }
 
     public Card highestCard(){
-        int max = -1;
+        int max = -1, place = 0, force = 0;
         for (int i = 0; i < this.cartes.size(); i++){
-            if (max < this.cartes.get(i).getValeur()){
-                max = i;
+            force = this.cartes.get(i).getValeur();
+            if (max < force){
+                max = force;
+                place = i;
             }
         }
-        return this.cartes.get(max);
+        return this.cartes.get(place);
     }
 
     public ArrayList<Card> getCarte() {

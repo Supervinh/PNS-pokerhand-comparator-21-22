@@ -5,7 +5,8 @@ public class PokerHand {
         InputReader ir = new InputReader();
         ArrayList<Card> cartes1 = new ArrayList<>();
         ArrayList<Card> cartes2 = new ArrayList<>();
-        for (int i = 0; i < 5; i++){
+        System.out.println("Première main");
+        for (int i = 1; i < 3; i++){
             System.out.println("Entrez la force de la carte " + i + ": ");
             String force = ir.readGame();
             System.out.println("Entrez le symbole de la carte " + i + ": ");
@@ -13,8 +14,8 @@ public class PokerHand {
             Card carte = new Card(symbole, force);
             cartes1.add(carte);
         }
-
-        for (int j = 0; j < 5; j++){
+        System.out.println("Seconde main");
+        for (int j = 1; j < 3; j++){
             System.out.println("Entrez la force de la carte " + j + ": ");
             String force = ir.readGame();
             System.out.println("Entrez le symbole de la carte " + j + ": ");

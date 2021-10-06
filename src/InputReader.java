@@ -1,13 +1,12 @@
 import java.util.*;
 
 public class InputReader {
+    public static final Scanner CONSOLE = new Scanner(System.in);
     public InputReader(){
 
     }
     public String readGame(){
-        Scanner sc = new Scanner(System.in);
-        String message =  sc.nextLine();
-        sc.close();
+        String message =  CONSOLE.nextLine();
         return message;
     }
 }
