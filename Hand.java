@@ -1,5 +1,3 @@
-package SoloDojo.Slices;
-
 import java.util.ArrayList;
 
 public class Hand {

@@ -1,5 +1,3 @@
-package SoloDojo.Slices;
-
 import java.util.Comparator;
 
 public class HandComparator implements Comparator<Hand> {

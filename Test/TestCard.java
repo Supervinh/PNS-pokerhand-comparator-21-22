@@ -1,4 +1,4 @@
-package SoloDojo.Slices.Test;
+/*
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,4 +30,4 @@ public class TestCard {
     }
 
 
-}
+} */
