@@ -2,11 +2,13 @@ import java.util.*;
 
 public class Hand {
     private ArrayList<Card> cartes;
-    private String nom;
+    private static int playernumber = 0;
+    private String nom = "Player ";
 
-    public Hand(ArrayList<Card> cartes, String nom){
+    public Hand(ArrayList<Card> cartes){
         this.cartes = cartes;
-        this.nom = nom;
+        Hand.playernumber++;
+        this.nom += Hand.playernumber;
     }
 
     public Card highestCard(){

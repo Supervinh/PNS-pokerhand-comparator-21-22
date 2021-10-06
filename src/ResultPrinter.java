@@ -1,6 +1,4 @@
-import java.util.*;
-
-import static javax.swing.UIManager.get;
+import java.util.Optional;
 
 public class ResultPrinter {
     static public void showResult (Optional<Hand> h){
