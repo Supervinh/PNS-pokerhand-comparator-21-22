@@ -2,6 +2,8 @@ import java.util.Optional;
 
 public class Game {
    private Hand hand1, hand2;
+   public static final int numberOfPlayers = 2;
+   public static final int numberOfCards = 2;
 
     public Game(Hand hand1, Hand hand2){
         this.hand1 = hand1;
