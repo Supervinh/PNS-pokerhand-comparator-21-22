@@ -7,18 +7,18 @@ public class PokerHand {
         ArrayList<Card> cartes2 = new ArrayList<>();
         System.out.println("Première main");
         for (int i = 1; i < 3; i++){
-            System.out.println("Entrez la force de la carte " + i + ": ");
+            System.out.print("Entrez la force de la carte " + i + ": ");
             String force = ir.readGame();
-            System.out.println("Entrez le symbole de la carte " + i + ": ");
+            System.out.print("Entrez le symbole de la carte " + i + ": ");
             String symbole = ir.readGame();
             Card carte = new Card(symbole, force);
             cartes1.add(carte);
         }
         System.out.println("Seconde main");
         for (int j = 1; j < 3; j++){
-            System.out.println("Entrez la force de la carte " + j + ": ");
+            System.out.print("Entrez la force de la carte " + j + ": ");
             String force = ir.readGame();
-            System.out.println("Entrez le symbole de la carte " + j + ": ");
+            System.out.print("Entrez le symbole de la carte " + j + ": ");
             String symbole = ir.readGame();
             Card carte = new Card(symbole, force);
             cartes2.add(carte);
