@@ -20,7 +20,7 @@ public class Game {
         return Optional.empty();
     }
 
-//    public String toString(){
-//        return this.hand1 + "\n" + this.hand2;
-//    }
+    public String toString(){
+        return this.hand1 + "\n" + this.hand2;
+    }
 }
