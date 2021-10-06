@@ -1,13 +1,12 @@
 public class Card {
-    private Rank symbole;
-    private Suit couleur;
-    private int valeur;
+    private final Rank symbole;
+    private final Suit couleur;
+    private final int valeur;
 
-    public Card(Rank symbole, Suit couleur){
-        this.symbole = symbole;
-        this.couleur = couleur;
-        this.valeur = this.symbole.getValue(); //on rentre sur l'entrée standard le symbole ainsi que la couleur de la carte.
-                            //il faut cependant assigner une valeur chiffré à la carte comme 13 pour roi
+    public Card(Rank r, Suit s){
+        this.symbole = r;
+        this.couleur = s;
+        this.valeur = this.symbole.getValue();
     }
 
     public Rank getSymbole(){

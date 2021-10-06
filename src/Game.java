@@ -10,12 +10,10 @@ public class Game {
 
     public Optional<Hand> compete(){
         if (this.hand1.highestCard().getValeur() < this.hand2.highestCard().getValeur()){
-            Optional<Hand> winner = Optional.ofNullable(this.hand2);
-            return winner;
+            return Optional.ofNullable(this.hand2);
         }
         else if (this.hand1.highestCard().getValeur() > this.hand2.highestCard().getValeur()){
-            Optional<Hand> winner = Optional.ofNullable(this.hand1);
-            return winner;
+            return Optional.ofNullable(this.hand1);
         }
         return Optional.empty();
     }
