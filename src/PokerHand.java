@@ -23,8 +23,6 @@ public class PokerHand {
 
         Game game = new Game(players);
         System.out.println(game);
-        //System.out.println("\nLa main gagnante est: ");
-        // A Faire la Methode
-
+        game.printWinner();
     }
 }
