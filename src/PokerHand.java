@@ -5,7 +5,6 @@ public class PokerHand {
 
         ArrayList<Hand> players = new ArrayList<>();
 
-
         for (int j = 1; j < Game.numberOfPlayers + 1; j++) {
             ArrayList<Card> cards = new ArrayList<>();
             System.out.println("\nPlayer " + j);
@@ -18,8 +17,9 @@ public class PokerHand {
         }
 
         Game game = new Game(players);
-
         System.out.println(game);
-        System.out.println("\nLa main gagnante est: ");
+        //System.out.println("\nLa main gagnante est: ");
+        // A Faire la Methode
+
     }
 }

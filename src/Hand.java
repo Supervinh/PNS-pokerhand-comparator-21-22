@@ -1,33 +1,30 @@
 import java.util.*;
 
 public class Hand {
-    private ArrayList<Card> cartes;
-    private static int playernumber = 0;
-    private String nom = "Player ";
+    private final ArrayList<Card> cards;
+    private static int playerNum = 0;
+    private String name = "Player ";
 
-    public Hand(ArrayList<Card> cartes){
-        this.cartes = cartes;
-        Hand.playernumber++;
-        this.nom += Hand.playernumber;
+    public Hand(ArrayList<Card> cards){
+        Hand.playerNum++;
+        this.cards = cards;
+        this.name += Hand.playerNum;
+        this.sortHand(this.cards);
+    }
+
+    public void sortHand(ArrayList<Card> cards) {
+        cards.sort(new CardComparator());
     }
 
     public Card highestCard(){
-        int max = -1, place = 0, force = 0;
-        for (int i = 0; i < this.cartes.size(); i++){
-            force = this.cartes.get(i).getValeur();
-            if (max < force){
-                max = force;
-                place = i;
-            }
-        }
-        return this.cartes.get(place);
+        return this.cards.get(this.cards.size()-1);
     }
 
     public ArrayList<Card> getCarte() {
-        return this.cartes;
+        return this.cards;
     }
 
     public String toString(){
-        return this.nom + " : " + this.cartes;
+        return this.name + " : " + this.cards;
     }
 }

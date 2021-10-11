@@ -1,27 +1,45 @@
 public class Card {
-    private final Rank symbole;
-    private final Suit couleur;
-    private final int valeur;
+    private final Rank rank;
+    private final Suit suit;
+    private final int force;
 
     public Card(Rank r, Suit s){
-        this.symbole = r;
-        this.couleur = s;
-        this.valeur = this.symbole.getValue();
+        this.rank = r;
+        this.suit = s;
+        this.force = this.rank.getValue();
     }
 
-    public Rank getSymbole(){
-        return this.symbole;
+    public Rank getRank(){
+        return this.rank;
     }
 
-    public Suit getCouleur(){
-        return this.couleur;
+    public Suit getSuit(){
+        return this.suit;
     }
 
-    public int getValeur(){
-        return this.valeur;
+    public int getForce(){
+        return this.force;
     }
 
     public String toString(){
-        return "[" + this.symbole + ", " + this.couleur + "]";
+        return "[" + this.rank + ", " + this.suit + "]";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Card other = (Card) obj;
+        if (rank != other.rank)
+            return false;
+        return suit == other.suit;
+    }
+
+    public int compareTo(Card c2) {
+        return this.getForce()-c2.getForce();
     }
 }
