@@ -3,8 +3,10 @@ import java.util.Optional;
 
 public class Game {
    private final ArrayList<Hand> hands;
-   public static final int numberOfPlayers = 2;
-   public static final int numberOfCards = 2;
+   public static final int numberOfPlayers = 5;
+   public static final int numberOfCards = 5;
+   public static final boolean automaticCards = true;
+   public static Deck deck = new Deck();
 
     public Game(ArrayList<Hand> hands){
         this.hands = hands;
