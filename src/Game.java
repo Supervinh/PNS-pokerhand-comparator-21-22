@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Game {
    private final ArrayList<Hand> hands;
    public static Deck deck = new Deck();
-   public static final int numberOfPlayers = 5;
+   public static final int numberOfPlayers = 10;
    public static final int numberOfCards = 5;
    public static final boolean automaticCards = true;
 
@@ -13,9 +13,24 @@ public class Game {
 
     public void printWinner() {
         this.sortHands();
-        ArrayList<Hand> listWinners = new ArrayList<>();
-        //Add Winners to list.
-        System.out.println("Le Gagnant est: " + this.hands.get(this.hands.size()-1));
+        Hand winner = this.hands.get(this.hands.size()-1);
+        ArrayList<Hand> winners = new ArrayList<>();
+        for (Hand h: this.hands) {
+            if (h.getScore()==winner.getScore() && h.getSubscore()==winner.getSubscore()) {
+                if (winner.getScore()!=0) {
+                    winners.add(h);
+                }
+            }
+        }
+        if (winners.size()<=1) {
+            System.out.println("Le Gagnant est: " + winner);
+        }
+        else {
+            System.out.println("Les Gagnants sont: ");
+            for (Hand h: winners) {
+                System.out.println(h);
+            }
+        }
     }
 
     public void sortHands() {
@@ -29,6 +44,4 @@ public class Game {
         }
         return msg.toString();
     }
-
-
 }

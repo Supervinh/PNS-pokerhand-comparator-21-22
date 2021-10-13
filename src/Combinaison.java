@@ -41,6 +41,7 @@ public class Combinaison {
             this.Rank_table.add(sum);
         }
     }
+<<<<<<< HEAD
 
     private int consecutiveCards(){
         int compteur_max = 0;
@@ -55,4 +56,6 @@ public class Combinaison {
         }
         return compteur_max;
     }
+=======
+>>>>>>> 3d6ce8037eb05fe8fcc103276c650c0a4a0f6a50
 }

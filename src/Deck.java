@@ -30,6 +30,7 @@ public class Deck {
         if (!this.deck.isEmpty()) {
             return this.deck.remove(0);
         }
+        System.out.println("No more Cards");
         System.exit(0);
         return new Card(Rank.As, Suit.Coeur);
     }
