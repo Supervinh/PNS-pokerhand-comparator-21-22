@@ -4,7 +4,6 @@ public class Hand {
     private static int playerNum = 0;
     private final ArrayList<Card> cards;
     private String name = "Player ";
-    private Combinaison combinaison;
     private int score=0;
     private int subscore=0;
 
@@ -13,7 +12,7 @@ public class Hand {
         this.cards = cards;
         this.name += Hand.playerNum;
         this.sortHand(this.cards);
-        this.combinaison = new Combinaison(this);
+//        new Combinaison(this);
 
     }
 

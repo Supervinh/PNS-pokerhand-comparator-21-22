@@ -1,9 +1,12 @@
 import java.util.*;
 
 public class Combinaison {
-    private ArrayList<Integer> Suit_table = new ArrayList<Integer>();
-    private ArrayList<Integer> Rank_table = new ArrayList<Integer>();
     private Hand h;
+    private ArrayList<Integer> Suit_table = new ArrayList<>();
+    private ArrayList<Integer> Rank_table = new ArrayList<>();
+    private int score;
+    private int subscore;
+
 
     public Combinaison (Hand h){
         this.h = h;
@@ -55,4 +58,16 @@ public class Combinaison {
         return compteur_max;
     }
 
+    public ArrayList<Integer> getSuit_table() {
+        return Suit_table;
+    }
+
+    public ArrayList<Integer> getRank_table() {
+        return Rank_table;
+    }
+
+    @Override
+    public String toString() {
+        return "{Suit_table=" + Suit_table + ", Rank_table=" + Rank_table + '}';
+    }
 }
