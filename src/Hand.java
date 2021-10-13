@@ -37,6 +37,14 @@ public class Hand {
         return this.name;
     }
 
+    public int getScore() {
+        return score;
+    }
+
+    public int getSubscore() {
+        return subscore;
+    }
+
     public String toString(){
         return this.name + " : " + this.cards;
     }
