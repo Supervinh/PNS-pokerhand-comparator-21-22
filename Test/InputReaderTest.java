@@ -2,56 +2,25 @@ import org.junit.jupiter.api.*;
 
 import java.io.*;
 
-/*import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;*/
-
 class InputReaderTest {
-
-    private final InputStream systemIn = System.in;
     private Rank output = Rank.Sept;
-    private ByteArrayInputStream testIn;
+    private Suit output2 = Suit.Carreau;
+    @Test
+    void rankTest(){
+        final String test = "Sept";
 
-    @BeforeEach
-    void provideInput(String data) {
-        testIn = new ByteArrayInputStream(data.getBytes());
-        System.setIn(testIn);
-    }
+        Rank rank = InputReader.typingRank(test);
 
-    @AfterEach
-    public void restoreSystemInputOutput() {
-        System.setIn(systemIn);
+        Assertions.assertEquals(rank, output);
     }
 
     @Test
-    void readerTest(){
-        final String test = "Sept";
-        provideInput(test);
+    void suitTest(){
+        final String test = "Carreau";
 
-        Rank rank = InputReader.typingRank();
+        Suit suit = InputReader.typingSuit(test);
 
-        Assertions.assertEquals(rank, output);
-
-
-
-
-        /*InputStream test = System.in;
-        System.setIn(new ByteArrayInputStream("3\n4\n".getBytes()));
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream ps = new PrintStream(byteArrayOutputStream);
-        PrintStream stdout = System.out;
-        System.setOut(ps);
-
-        rank = InputReader.typingRank();
-
-        System.setIn(test);
-        System.setOut(stdout);
-
-        String outputText = byteArrayOutputStream.toString();
-        String key = "output:";
-        String output = outputText.substring(outputText.indexOf(key) + key.length()).trim();
-        Assertions.assertEquals(output, "7" );*/
+        Assertions.assertEquals(suit, output2);
 
     }
 }

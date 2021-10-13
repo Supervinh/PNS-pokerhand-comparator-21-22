@@ -6,6 +6,10 @@ public class InputReader {
     public static Rank typingRank() {
         System.out.print("Enter Rank: ");
         String input = CONSOLE.nextLine();
+        return typingRank(input);
+    }
+
+    public static Rank typingRank(String input) {
         switch (input.toLowerCase()) {
             case "2", "deux", "two" -> input = "Deux";
             case "3", "trois", "three" -> input = "Trois";
@@ -31,9 +35,13 @@ public class InputReader {
         }
     }
 
-    public static Suit typingSuit() {
+    public static Suit typingSuit(){
         System.out.print("Enter Suit: ");
         String input = CONSOLE.nextLine();
+        return typingSuit(input);
+    }
+
+    public static Suit typingSuit(String input) {
         switch (input.toLowerCase()) {
             case "co", "coeur", "heart" -> input = "Coeur";
             case "ca", "carreau", "diamond" -> input = "Carreau";
