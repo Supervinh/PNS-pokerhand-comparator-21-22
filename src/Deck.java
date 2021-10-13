@@ -10,7 +10,6 @@ public class Deck {
                 deck.add(new Card(rank, suit));
             }
         }
-
         Random rand = new Random();
         for (int i = 0; i < Math.max(10, rand.nextInt(20)); i++) {
             this.shuffleDeck();
@@ -54,9 +53,4 @@ public class Deck {
     public String toString() {
         return "Deck " + deck + ", nbCards=" + deck.size();
     }
-
-    
-
-    
-
 }
