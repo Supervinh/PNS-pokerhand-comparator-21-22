@@ -4,7 +4,7 @@ public class Combinaison {
     private final Hand h;
     private final ArrayList<Integer> Suit_table = new ArrayList<>();
     private final ArrayList<Integer> Rank_table = new ArrayList<>();
-    private final int numberOfConcecutiveCards;
+    private final int numberOfConsecutiveCards;
     private final int score;
     private final int subscore;
 
@@ -15,7 +15,7 @@ public class Combinaison {
         this.setRank_table();
         this.score = this.getScoreOfHand();
         this.subscore = this.getSubScoreOfHand();
-        this.numberOfConcecutiveCards = this.consecutiveCards();
+        this.numberOfConsecutiveCards = this.consecutiveCards();
     }
 
     private void setSuit_table() {
@@ -76,11 +76,11 @@ public class Combinaison {
     }
 
     private int isRoyalFlush() {
-        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5) && this.Rank_table.get(this.Rank_table.size()-1)>0) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
+        return (this.numberOfConsecutiveCards ==5 && this.Suit_table.contains(5) && this.Rank_table.get(this.Rank_table.size()-1)>0) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
     private int isStraightFlush() {
-        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourofaKind();
+        return (this.numberOfConsecutiveCards ==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourofaKind();
     }
 
     private int isFourofaKind() {
@@ -96,7 +96,7 @@ public class Combinaison {
     }
 
     private int isStraight() {
-        return (this.numberOfConcecutiveCards==5) ? Rankings.Straight.getValue() : this.isThreeofaKind();
+        return (this.numberOfConsecutiveCards ==5) ? Rankings.Straight.getValue() : this.isThreeofaKind();
     }
 
     private int isThreeofaKind() {

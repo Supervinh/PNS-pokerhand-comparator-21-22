@@ -30,10 +30,6 @@ public class Hand {
         return this.cards;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
     public int getScore() {
         return score;
     }
