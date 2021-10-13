@@ -42,18 +42,13 @@ public class Combinaison {
         }
     }
 
-
     private int consecutiveCards(){
-        int compteur_max = 0;
-        int compteur = 0;
-        for (int i = 0; i < this.Rank_table.size(); i++){
-            if (this.Rank_table.get(i) != 0){
+        int compteur_max = 0, compteur = 0;
+        for (Integer integer : this.Rank_table) {
+            if (integer != 0) {
                 compteur++;
-            }
-            else{
-                if (compteur_max < compteur) {
-                    compteur_max = compteur;
-                }
+            } else {
+                compteur_max = Math.max(compteur, compteur_max);
                 compteur = 0;
             }
         }
