@@ -25,6 +25,10 @@ public class Card {
         return "[" + this.rank + ", " + this.suit + "]";
     }
 
+    public int compareTo(Card c2) {
+        return this.getForce()-c2.getForce();
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
@@ -37,9 +41,5 @@ public class Card {
         if (rank != other.rank)
             return false;
         return suit == other.suit;
-    }
-
-    public int compareTo(Card c2) {
-        return this.getForce()-c2.getForce();
     }
 }
