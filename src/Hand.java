@@ -6,7 +6,7 @@ public class Hand {
     private String name = "Player ";
     private final int score;
     private final int subscore;
-    private Combinaison C;
+    private final Combinaison C;
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
@@ -43,7 +43,7 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + " : " + this.cards +" \u25B6 " + this.C.showHandRanking(this);
+        return this.name + " : " + this.cards + " \u25B6 " + this.C.showHandRanking() + " \u25B6 " + this.C.getSubScoreOfHand();
     }
 
     public int compareTo(Hand h) {

@@ -13,8 +13,8 @@ public class Combinaison {
         this.h = h;
         this.setSuit_table();
         this.setRank_table();
-        this.score = this.getScoreOfHand(h);
-        this.subscore = this.getSubScoreOfHand(h);
+        this.score = this.getScoreOfHand();
+        this.subscore = this.getSubScoreOfHand();
         this.numberOfConcecutiveCards = this.consecutiveCards();
     }
 
@@ -62,7 +62,7 @@ public class Combinaison {
         return compteur_max;
     }
 
-    public Rankings showHandRanking(Hand h) {
+    public Rankings showHandRanking() {
         for (Rankings rankings : Rankings.values()) {
             if (rankings.getValue() == this.score) {
                 return rankings;
@@ -71,85 +71,75 @@ public class Combinaison {
         return Rankings.HighCard;
     }
 
-    public int getScoreOfHand(Hand h) {
-        return isRoyalFlush(h);
+    public int getScoreOfHand() {
+        return this.isRoyalFlush();
     }
 
-    private int isRoyalFlush(Hand h) {
-        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5) && this.Rank_table.get(this.Rank_table.size()-1)>0) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush(h);
+    private int isRoyalFlush() {
+        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5) && this.Rank_table.get(this.Rank_table.size()-1)>0) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
-    private int isStraightFlush(Hand h) {
-        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourofaKind(h);
+    private int isStraightFlush() {
+        return (this.numberOfConcecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourofaKind();
     }
 
-    private int isFourofaKind(Hand h) {
-        return (this.Rank_table.contains(4)) ? Rankings.FourofaKind.getValue() : this.isFullHouse(h);
+    private int isFourofaKind() {
+        return (this.Rank_table.contains(4)) ? Rankings.FourofaKind.getValue() : this.isFullHouse();
     }
 
-    private int isFullHouse(Hand h) {
-        return (this.Rank_table.contains(3) && this.Rank_table.contains(2)) ? Rankings.FullHouse.getValue() : this.isFlush(h);
+    private int isFullHouse() {
+        return (this.Rank_table.contains(3) && this.Rank_table.contains(2)) ? Rankings.FullHouse.getValue() : this.isFlush();
     }
 
-    private int isFlush(Hand h) {
-        return (this.Suit_table.contains(5)) ? Rankings.Flush.getValue() : this.isStraight(h);
+    private int isFlush() {
+        return (this.Suit_table.contains(5)) ? Rankings.Flush.getValue() : this.isStraight();
     }
 
-    private int isStraight(Hand h) {
-        return (this.numberOfConcecutiveCards==5) ? Rankings.Straight.getValue() : this.isThreeofaKind(h);
+    private int isStraight() {
+        return (this.numberOfConcecutiveCards==5) ? Rankings.Straight.getValue() : this.isThreeofaKind();
     }
 
-    private int isThreeofaKind(Hand h) {
-        return (this.Rank_table.contains(3)) ? Rankings.ThreeofaKind.getValue() : this.isTwoPair(h);
+    private int isThreeofaKind() {
+        return (this.Rank_table.contains(3)) ? Rankings.ThreeofaKind.getValue() : this.isTwoPair();
     }
 
-    private int isTwoPair(Hand h) {
+    private int isTwoPair() {
         int count=0;
         for (Integer i: this.Rank_table) {
             if (i == 2) {
                 count++;
             }
         }
-        return (count==2) ? Rankings.TwoPair.getValue() : this.isPair(h);
+        return (count==2) ? Rankings.TwoPair.getValue() : this.isPair();
     }
 
-    private int isPair(Hand h) {
+    private int isPair() {
         return (this.Rank_table.contains(2)) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
 
-    public int getSubScoreOfHand(Hand h) {
-        return switch (this.getScoreOfHand(h)) {
-            case 10 -> subScoreOfRoyalFlush();
-//            case 9 -> subScoreOfStraightFlush(h);
-//            case 8 -> subScoreOfFourofaKind(h);
-//            case 7 -> subScoreOfFullHouse(h);
-//            case 6 -> subScoreOfFlush(h);
-//            case 5 -> subScoreOfStraight(h);
-//            case 4 -> subScoreOfThreeofaKind(h);
-//            case 3 -> subScoreOfTwoPair(h);
-//            case 2 -> subScoreOfPair(h);
-//            case 1 -> subScoreOfHighCard(h);
+    public int getSubScoreOfHand() {
+        return switch (this.getScoreOfHand()) {
+            case 10 -> Rank.As.getValue();
+            case 9, 6, 5, 1 -> this.subScoreOfHighCard();
+            case 8 -> this.subscoreMethodN(4);
+            case 7, 4 -> this.subscoreMethodN(3);
+            case 3, 2 -> this.subscoreMethodN(2);
             default -> 0;
         };
     }
-    
-    
-    
-    
 
-    private int subScoreOfRoyalFlush() {
-        return 0;
+    private int subScoreOfHighCard() {
+        return this.h.highestCard(this.h.getCards()).getForce();
     }
 
-
-    
-
-    public ArrayList<Integer> getSuit_table() {
-        return Suit_table;
-    }
-
-    public ArrayList<Integer> getRank_table() {
-        return Rank_table;
+    private int subscoreMethodN(int n) {
+        int temp=0;
+        for (int i = 0; i < this.Rank_table.size(); i++) {
+            if (this.Rank_table.get(i)==n) {
+                temp = Math.max(temp,Rank.values()[i].getValue());
+            }
+        }
+        return temp;
     }
 
     public int getScore() {
@@ -158,10 +148,6 @@ public class Combinaison {
 
     public int getSubscore() {
         return subscore;
-    }
-
-    public int getNumberOfConcecutiveCards() {
-        return numberOfConcecutiveCards;
     }
 
     @Override

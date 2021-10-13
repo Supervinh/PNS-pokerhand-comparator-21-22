@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Game {
    private final ArrayList<Hand> hands;
    public static Deck deck = new Deck();
-   public static final int numberOfPlayers = 10;
+   public static final int numberOfPlayers = 5;
    public static final int numberOfCards = 5;
    public static final boolean automaticCards = true;
 
