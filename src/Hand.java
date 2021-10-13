@@ -4,15 +4,16 @@ public class Hand {
     private static int playerNum = 0;
     private final ArrayList<Card> cards;
     private String name = "Player ";
-    private int score;
-    private int subscore;
+    private int score=0;
+    private int subscore=0;
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
         this.cards = cards;
         this.name += Hand.playerNum;
         this.sortHand(this.cards);
-        this.evaluateHand();
+//        new Combinaison(this);
+
     }
 
     public void sortHand(ArrayList<Card> cards) {
