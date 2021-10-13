@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Dojo - La main de poker:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Dojo___La_main_de_poker_jar</output-path>
+    <root id="archive" name="Dojo - La main de poker.jar">
+      <element id="module-output" name="Dojo - La main de poker" />
+    </root>
+  </artifact>
+</component>

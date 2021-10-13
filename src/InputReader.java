@@ -3,14 +3,6 @@ import java.util.*;
 public class InputReader {
     public static final Scanner CONSOLE = new Scanner(System.in);
 
-    public InputReader() {
-
-    }
-
-    public String readGame() {
-        return CONSOLE.nextLine();
-    }
-
     public static Rank typingRank() {
         System.out.print("Enter Rank: ");
         String input = CONSOLE.nextLine();
@@ -35,8 +27,7 @@ public class InputReader {
             return Rank.valueOf(input);
         } catch (Exception e) {
             System.out.println(e);
-            System.exit(0);
-            return Rank.Deux;
+            return typingRank();
         }
     }
 
@@ -55,8 +46,7 @@ public class InputReader {
             return Suit.valueOf(input);
         } catch (Exception e) {
             System.out.println(e);
-            System.exit(0);
-            return Suit.Coeur;
+            return typingSuit();
         }
     }
 }
