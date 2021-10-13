@@ -4,16 +4,18 @@ public class Hand {
     private static int playerNum = 0;
     private final ArrayList<Card> cards;
     private String name = "Player ";
-    private int score=0;
-    private int subscore=0;
+    private final int score;
+    private final int subscore;
+    private Combinaison C;
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
         this.cards = cards;
         this.name += Hand.playerNum;
         this.sortHand(this.cards);
-//        new Combinaison(this);
-
+        this.C = new Combinaison(this);
+        this.score = this.C.getScore();
+        this.subscore = this.C.getSubscore();
     }
 
     public void sortHand(ArrayList<Card> cards) {
@@ -22,12 +24,6 @@ public class Hand {
 
     public Card highestCard(ArrayList<Card> cards){
         return cards.get(cards.size()-1);
-    }
-
-    public void evaluateHand() {
-        // Plus qu'à Identifier type de la main et attribuer des points en fonctions. et aussi donner des sous points pour comparer deux main du meme type.
-        this.score = 0;
-        this.subscore = this.highestCard(this.getCards()).getForce();
     }
 
     public ArrayList<Card> getCards() {
@@ -47,7 +43,7 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + " : " + this.cards;
+        return this.name + " : " + this.cards +" \u25B6 " + this.C.showHandRanking(this);
     }
 
     public int compareTo(Hand h) {
