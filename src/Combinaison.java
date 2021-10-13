@@ -31,10 +31,7 @@ public class Combinaison {
                 Carreau++;
             }
         }
-        this.Suit_table.add(Trefle);
-        this.Suit_table.add(Pique);
-        this.Suit_table.add(Coeur);
-        this.Suit_table.add(Carreau);
+        Collections.addAll(this.Suit_table, Trefle, Pique, Coeur, Carreau);
     }
 
     private void setRank_table() {
@@ -84,7 +81,7 @@ public class Combinaison {
     }
 
     private int isFourofaKind() {
-        return (this.Rank_table.contains(4)) ? Rankings.FourofaKind.getValue() : this.isFullHouse();
+        return (this.Rank_table.contains(4)) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
     }
 
     private int isFullHouse() {
@@ -100,7 +97,7 @@ public class Combinaison {
     }
 
     private int isThreeofaKind() {
-        return (this.Rank_table.contains(3)) ? Rankings.ThreeofaKind.getValue() : this.isTwoPair();
+        return (this.Rank_table.contains(3)) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
     }
 
     private int isTwoPair() {
@@ -133,13 +130,13 @@ public class Combinaison {
     }
 
     private int subscoreMethodN(int n) {
-        int temp=0;
+        int maxSubscore=0;
         for (int i = 0; i < this.Rank_table.size(); i++) {
             if (this.Rank_table.get(i)==n) {
-                temp = Math.max(temp,Rank.values()[i].getValue());
+                maxSubscore = Math.max(maxSubscore,Rank.values()[i].getValue());
             }
         }
-        return temp;
+        return maxSubscore;
     }
 
     public int getScore() {

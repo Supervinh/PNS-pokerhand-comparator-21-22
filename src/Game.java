@@ -23,10 +23,10 @@ public class Game {
             }
         }
         if (winners.size()<=1) {
-            System.out.println("Le Gagnant est: " + winner);
+            System.out.println("The Winner is: " + winner);
         }
         else {
-            System.out.println("Les Gagnants sont: ");
+            System.out.println("The Winners are: ");
             for (Hand h: winners) {
                 System.out.println(h);
             }

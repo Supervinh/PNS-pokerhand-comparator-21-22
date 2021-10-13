@@ -10,8 +10,8 @@ public class Hand {
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
-        this.cards = cards;
         this.name += Hand.playerNum;
+        this.cards = cards;
         this.sortHand(this.cards);
         this.C = new Combinaison(this);
         this.score = this.C.getScore();
@@ -39,14 +39,14 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + " : " + this.cards + " \u25B6 " + this.C.showHandRanking() + " \u25B6 " + this.C.getSubScoreOfHand();
+        return this.name + ": " + this.cards + " \u25B6 " + this.C.showHandRanking() + " \u25B6 " + this.C.getSubScoreOfHand();
     }
 
     public int compareTo(Hand h) {
         int dif = this.score - h.score;
         if (dif == 0) {
             dif = this.subscore - h.subscore;
-            if (dif == 0 && this.score==0) {
+            if (dif == 0 && this.score==0) { // if HighCards, need deeper comparison.
                 ArrayList<Card> c1 = (ArrayList<Card>) this.getCards().clone();
                 ArrayList<Card> c2 = (ArrayList<Card>) h.getCards().clone();
                 int subscore1=0, subscore2=0;
