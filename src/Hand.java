@@ -41,11 +41,6 @@ public class Hand {
         return this.name + " : " + this.cards;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
     public int compareTo(Hand h) {
         int dif = this.score - h.score;
         if (dif == 0) {
@@ -64,5 +59,10 @@ public class Hand {
             }
         }
         return dif;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
