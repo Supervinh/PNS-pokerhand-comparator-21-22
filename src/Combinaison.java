@@ -41,12 +41,4 @@ public class Combinaison {
             this.Rank_table.add(sum);
         }
     }
-    private int evaluate(){
-        int max = 0;
-        for (int i = 0; i < this.Rank_table.size(); i++){
-            if (this.Rank_table.get(i) > max){
-
-            }
-        }
-    }
 }
