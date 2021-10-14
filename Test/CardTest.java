@@ -23,7 +23,7 @@ class CardTest {
     }
 
     @Test
-    public void TestgetRank() {
+    public void TestGetRank() {
         Assertions.assertEquals(Rank.As, card1.getRank());
         Assertions.assertEquals(Rank.Valet, card2.getRank());
         Assertions.assertEquals(Rank.Quatre, card3.getRank());
@@ -31,7 +31,7 @@ class CardTest {
     }
 
     @Test
-    public void TestgetForce() {
+    public void TestGetForce() {
         Assertions.assertEquals(14, card1.getForce());
         Assertions.assertEquals(11, card2.getForce());
         Assertions.assertEquals(4, card3.getForce());
@@ -52,5 +52,4 @@ class CardTest {
         Assertions.assertNotEquals(null, card1);
         Assertions.assertNotEquals(card3, card4);
     }
-
 }
