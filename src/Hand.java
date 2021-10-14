@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Hand {
     private static int playerNum = 0;
-    private final ArrayList<Card> cards;
     private String name = "Player ";
+    private final ArrayList<Card> cards;
+    private final Combinaison C;
     private final int score;
     private final int subscore;
-    private final Combinaison C;
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
@@ -16,10 +16,6 @@ public class Hand {
         this.C = new Combinaison(this);
         this.score = this.C.getScore();
         this.subscore = this.C.getSubscore();
-    }
-
-    public void sortHand(ArrayList<Card> cards) {
-        cards.sort(new CardComparator());
     }
 
     public Card highestCard(ArrayList<Card> cards){
@@ -43,7 +39,7 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + ": " + this.cards + " \u25B6 " + this.C.showHandRanking() + " \u25B6 " + this.C.getSubScoreOfHand();
+        return this.name + ": " + this.cards + " \u25B6 " + this.C.showHandRanking() + " \u25B6 " + this.getSubscore();
     }
 
     public int compareTo(Hand h) {
@@ -91,6 +87,10 @@ public class Hand {
             c2.remove(c2.size()-1);
         }
         return dif;
+    }
+
+    public void sortHand(ArrayList<Card> cards) {
+        cards.sort(new CardComparator());
     }
 
     @Override
