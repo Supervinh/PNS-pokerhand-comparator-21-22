@@ -9,7 +9,7 @@ public class PokerHand {
         for (int j = 1; j < Game.numberOfPlayers + 1; j++) {
             ArrayList<Card> cards = new ArrayList<>();
             if (!Game.automaticCards) {
-                System.out.println("\nPlayer " + j);
+                System.out.println("\n=== Player " + j + " ===");
             }
             for (int i = 1; i < Game.numberOfCards + 1; i++) {
                 if (Game.automaticCards) {
@@ -25,6 +25,6 @@ public class PokerHand {
 
         Game game = new Game(players);
         System.out.println(game);
-        game.printWinner();
+        game.showRankings();
     }
 }
