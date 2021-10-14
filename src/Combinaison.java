@@ -15,7 +15,7 @@ public class Combinaison {
         this.setRank_table();
         this.score = this.getScoreOfHand();
         this.subscore = this.getSubScoreOfHand();
-        this.numberOfConsecutiveCards = this.consecutiveCards();
+        this.numberOfConsecutiveCards = this.setConsecutiveCards();
     }
 
     private void setSuit_table() {
@@ -46,7 +46,7 @@ public class Combinaison {
         }
     }
 
-    private int consecutiveCards(){
+    private int setConsecutiveCards(){
         int compteur_max = 0, compteur = 0;
         for (Integer integer : this.Rank_table) {
             if (integer != 0) {
