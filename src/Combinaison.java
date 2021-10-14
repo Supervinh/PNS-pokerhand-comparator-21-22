@@ -13,9 +13,9 @@ public class Combinaison {
         this.h = h;
         this.setSuit_table();
         this.setRank_table();
+        this.numberOfConsecutiveCards = this.setConsecutiveCards();
         this.score = this.getScoreOfHand();
         this.subscore = this.getSubScoreOfHand();
-        this.numberOfConsecutiveCards = this.setConsecutiveCards();
     }
 
     private void setSuit_table() {
@@ -56,7 +56,7 @@ public class Combinaison {
                 compteur = 0;
             }
         }
-        return compteur_max;
+        return Math.max(compteur, compteur_max);
     }
 
     public Rankings showHandRanking() {
@@ -68,20 +68,20 @@ public class Combinaison {
         return Rankings.HighCard;
     }
 
-    public int getScoreOfHand() {
+    private int getScoreOfHand() {
         return this.isRoyalFlush();
     }
 
     private int isRoyalFlush() {
-        return (this.numberOfConsecutiveCards ==5 && this.Suit_table.contains(5) && this.Rank_table.get(this.Rank_table.size()-1)>0) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
+        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.As.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
     private int isStraightFlush() {
-        return (this.numberOfConsecutiveCards ==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourofaKind();
+        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
     }
 
-    private int isFourofaKind() {
-        return (this.Rank_table.contains(4)) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
+    private int isFourOfAKind() {
+        return this.Rank_table.contains(4) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
     }
 
     private int isFullHouse() {
@@ -89,15 +89,15 @@ public class Combinaison {
     }
 
     private int isFlush() {
-        return (this.Suit_table.contains(5)) ? Rankings.Flush.getValue() : this.isStraight();
+        return this.Suit_table.contains(5) ? Rankings.Flush.getValue() : this.isStraight();
     }
 
     private int isStraight() {
-        return (this.numberOfConsecutiveCards ==5) ? Rankings.Straight.getValue() : this.isThreeofaKind();
+        return this.numberOfConsecutiveCards==5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
     }
 
-    private int isThreeofaKind() {
-        return (this.Rank_table.contains(3)) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
+    private int isThreeOfAKind() {
+        return this.Rank_table.contains(3) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
     }
 
     private int isTwoPair() {
@@ -107,14 +107,14 @@ public class Combinaison {
                 count++;
             }
         }
-        return (count==2) ? Rankings.TwoPair.getValue() : this.isPair();
+        return count==2 ? Rankings.TwoPair.getValue() : this.isPair();
     }
 
     private int isPair() {
-        return (this.Rank_table.contains(2)) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
+        return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
 
-    public int getSubScoreOfHand() {
+    private int getSubScoreOfHand() {
         return switch (this.getScoreOfHand()) {
             case 10 -> Rank.As.getValue();
             case 9, 6, 5, 1 -> this.subScoreOfHighCard();
