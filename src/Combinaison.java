@@ -59,7 +59,7 @@ public class Combinaison {
         return Math.max(compteur, compteur_max);
     }
 
-    public Rankings showHandRanking() {
+    public Rankings getHandRanking() {
         for (Rankings rankings : Rankings.values()) {
             if (rankings.getValue() == this.score) {
                 return rankings;
