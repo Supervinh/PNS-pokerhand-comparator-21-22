@@ -2,40 +2,28 @@ import java.util.*;
 
 public class Hand {
     private static int playerNum = 0;
-    private final ArrayList<Card> cards;
     private String name = "Player ";
-    private int score=0;
-    private int subscore=0;
+    private final ArrayList<Card> cards;
+    private final Combinaison C;
+    private final int score;
+    private final int subscore;
 
     public Hand(ArrayList<Card> cards){
         Hand.playerNum++;
-        this.cards = cards;
         this.name += Hand.playerNum;
+        this.cards = cards;
         this.sortHand(this.cards);
-//        new Combinaison(this);
-
-    }
-
-    public void sortHand(ArrayList<Card> cards) {
-        cards.sort(new CardComparator());
+        this.C = new Combinaison(this);
+        this.score = this.C.getScore();
+        this.subscore = this.C.getSubscore();
     }
 
     public Card highestCard(ArrayList<Card> cards){
         return cards.get(cards.size()-1);
     }
 
-    public void evaluateHand() {
-        // Plus qu'à Identifier type de la main et attribuer des points en fonctions. et aussi donner des sous points pour comparer deux main du meme type.
-        this.score = 0;
-        this.subscore = this.highestCard(this.getCards()).getForce();
-    }
-
     public ArrayList<Card> getCards() {
         return this.cards;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public int getScore() {
@@ -46,28 +34,63 @@ public class Hand {
         return subscore;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String toString(){
-        return this.name + " : " + this.cards;
+        return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking() + " \u25B6 " + this.getSubscore();
     }
 
     public int compareTo(Hand h) {
         int dif = this.score - h.score;
         if (dif == 0) {
             dif = this.subscore - h.subscore;
-            if (dif == 0 && this.score==0) {
+            if (dif == 0) {
                 ArrayList<Card> c1 = (ArrayList<Card>) this.getCards().clone();
                 ArrayList<Card> c2 = (ArrayList<Card>) h.getCards().clone();
-                int subscore1=0, subscore2=0;
-                while (!c1.isEmpty() && !c2.isEmpty() && subscore1 == subscore2) {
-                    subscore1 = this.highestCard(c1).getForce();
-                    subscore2 = h.highestCard(c2).getForce();
-                    c1.remove(c1.size()-1);
-                    c2.remove(c2.size()-1);
+                switch (this.score) {
+                    case 3 -> dif = this.methodTwoPair(h, c1, c2);
+                    case 2 -> dif = this.methodPair(h, c1, c2);
+                    default -> dif = this.methodHighestCard(h, c1, c2);
                 }
-                return subscore1-subscore2;
             }
         }
         return dif;
+    }
+
+    public int methodTwoPair(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
+        c1.removeIf(card -> card.getForce()==this.getSubscore());
+        c2.removeIf(card -> card.getForce()==h.getSubscore());
+        Hand h1 = new Hand(c1);
+        Hand h2 = new Hand(c2);
+        int dif = h1.getSubscore() - h2.getSubscore();
+        if (dif == 0) {
+            c1.removeIf(card -> card.getForce()==h1.getSubscore());
+            c2.removeIf(card -> card.getForce()==h2.getSubscore());
+            dif = this.methodHighestCard(h, c1, c2);
+        }
+        return dif;
+    }
+
+    public int methodPair(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
+        c1.removeIf(card -> card.getForce()==this.getSubscore());
+        c2.removeIf(card -> card.getForce()==h.getSubscore());
+        return this.methodHighestCard(h, c1, c2);
+    }
+
+    public int methodHighestCard(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
+        int dif=0;
+        while (!c1.isEmpty() && !c2.isEmpty() && dif==0) {
+            dif = this.highestCard(c1).getForce() - h.highestCard(c2).getForce();
+            c1.remove(c1.size()-1);
+            c2.remove(c2.size()-1);
+        }
+        return dif;
+    }
+
+    public void sortHand(ArrayList<Card> cards) {
+        cards.sort(new CardComparator());
     }
 
     @Override

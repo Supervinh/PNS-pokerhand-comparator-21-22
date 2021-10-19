@@ -2,14 +2,14 @@ import java.util.ArrayList;
 
 public class PokerHand {
     public static void main(String [] args) {
-        // Game Global Settings like Number of players, Cards and auto is in the Game Class as static fields.
+        // Game Global Settings like player number, card number and auto draw card is in the Game Class as static fields.
         ArrayList<Hand> players = new ArrayList<>();
         Card card;
 
         for (int j = 1; j < Game.numberOfPlayers + 1; j++) {
             ArrayList<Card> cards = new ArrayList<>();
             if (!Game.automaticCards) {
-                System.out.println("\nPlayer " + j);
+                System.out.println("\n=== Player " + j + " ===");
             }
             for (int i = 1; i < Game.numberOfCards + 1; i++) {
                 if (Game.automaticCards) {
@@ -25,6 +25,6 @@ public class PokerHand {
 
         Game game = new Game(players);
         System.out.println(game);
-        game.printWinner();
+        game.showRankings();
     }
 }

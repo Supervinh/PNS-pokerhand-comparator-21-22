@@ -29,9 +29,9 @@ public class Deck {
         if (!this.deck.isEmpty()) {
             return this.deck.remove(0);
         }
-        System.out.println("No more Cards");
+        System.out.println("No more Cards - End of Game.");
         System.exit(0);
-        return new Card(Rank.As, Suit.Coeur);
+        return null;
     }
 
     public Card takeCard(Card c) {
@@ -41,8 +41,10 @@ public class Deck {
                     this.deck.remove(i);
                 }
             }
+            return c;
         }
-        return c;
+        System.out.println("Card has already been Drawn - Try again.");
+        return takeCard(new Card(InputReader.typingRank(), InputReader.typingSuit()));
     }
 
     public ArrayList<Card> getDeck() {
