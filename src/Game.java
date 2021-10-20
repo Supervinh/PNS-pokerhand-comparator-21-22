@@ -25,10 +25,16 @@ public class Game {
         if (winners.size()<=1) {
             System.out.println("The Winner is: " + winner);
         }
+
         else {
-            System.out.println("The Winners are: ");
-            for (Hand h: winners) {
-                System.out.println(h);
+            if (numberOfPlayers == winners.size()){
+                System.out.println("Egalite");
+            }
+            else {
+                System.out.println("The Winners are: ");
+                for (Hand h : winners) {
+                    System.out.println(h);
+                }
             }
         }
     }
