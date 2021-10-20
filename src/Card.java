@@ -1,7 +1,7 @@
 /* Classe afin de créer une carte
 *
-* @author Matis
-* @author Louis
+* @author Matis Herrmann
+* @author Louis Hattiger
 * @author Vinh Faucher
 * */
 

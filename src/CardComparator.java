@@ -1,7 +1,7 @@
 /*Classe comparant 2 cartes entre elles
-* @author Matis
-* @author Louis
-* @author Vinh Faucher
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
 */
 import java.util.Comparator;
 

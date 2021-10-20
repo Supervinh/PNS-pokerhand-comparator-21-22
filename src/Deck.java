@@ -1,4 +1,8 @@
-// Classe créant un deck de 52 cartes
+/* Classe créant un deck de 52 cartes
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ */
 import java.util.ArrayList;
 import java.util.Random;
 

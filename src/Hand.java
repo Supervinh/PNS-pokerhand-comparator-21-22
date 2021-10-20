@@ -1,11 +1,23 @@
+/* Classe qui permet de créer les mains de poker
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ */
+
 import java.util.*;
 
 public class Hand {
+    // Le numéro du joueur
     private static int playerNum = 0;
+    // Le nom du joueur
     private String name = "Player ";
+    // La main de Poker
     private final ArrayList<Card> cards;
+    // La valeur de la combinaison que possède la main
     private final Combinaison C;
+    // Le score associé à la combinaison
     private final int score;
+    // Le score associé à la carte dominante
     private final int subscore;
 
     public Hand(ArrayList<Card> cards){
@@ -17,6 +29,7 @@ public class Hand {
         this.score = this.C.getScore();
         this.subscore = this.C.getSubscore();
     }
+
 
     public Card highestCard(ArrayList<Card> cards){
         return cards.get(cards.size()-1);

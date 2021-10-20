@@ -1,8 +1,8 @@
 /*Classe permettant de repérer les différentes combinaisons possibles dans une main et
 * d'assigner une force à chaque combinaison
-* @author Matis
-* @author Louis
-* @author Vinh Faucher
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
 */
 
 import java.util.*;
@@ -31,7 +31,7 @@ public class Combinaison {
         this.subscore = this.getSubScoreOfHand();
     }
 
-    //Initialise le tableau des couleurs
+    //Initialise le tableau des couleurs et le remplit
     private void setSuit_table() {
         int Trefle = 0, Pique = 0, Coeur = 0, Carreau = 0;
         for (Card c: this.h.getCards()) {
@@ -48,7 +48,7 @@ public class Combinaison {
         Collections.addAll(this.Suit_table, Trefle, Pique, Coeur, Carreau);
     }
 
-    //Initialise le tableau des cartes
+    //Initialise le tableau des cartes et le remplit
     private void setRank_table() {
         for (Rank rank: Rank.values()) {
             int sum = 0;
@@ -141,7 +141,7 @@ public class Combinaison {
         return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
 
-    //Associe un score
+    //Associe un score à la main en fonction des combinaisons qu'elle possède
     private int getSubScoreOfHand() {
         return switch (this.getScoreOfHand()) {
             case 10 -> Rank.As.getValue();
@@ -153,10 +153,12 @@ public class Combinaison {
         };
     }
 
+    //Associe à la main un deuxième score selon sa carte dominante afin de départager deux mains de combinaisons identiques
     private int subScoreOfHighCard() {
         return this.h.highestCard(this.h.getCards()).getForce();
     }
 
+    // ???????????????????????????
     private int subscoreMethodN(int n) {
         int maxSubscore=0;
         for (int i = 0; i < this.Rank_table.size(); i++) {
