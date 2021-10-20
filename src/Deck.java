@@ -43,7 +43,7 @@ public class Deck {
             }
             return c;
         }
-        System.out.println("Card has already been Drawn - Try again.");
+        System.out.println(c + " has already been Drawn - Try again.");
         return takeCard(new Card(InputReader.typingRank(), InputReader.typingSuit()));
     }
 

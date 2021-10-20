@@ -42,6 +42,10 @@ public class Hand {
         return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking() + " \u25B6 " + this.getSubscore();
     }
 
+    public String handScoreAndSubscoreText() {
+        return this.getName() + " with a " + this.C.getHandRanking() + " of " + Rank.rankFromScore(this.getSubscore());
+    }
+
     public int compareTo(Hand h) {
         int dif = this.score - h.score;
         if (dif == 0) {

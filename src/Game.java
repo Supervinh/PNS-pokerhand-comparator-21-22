@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Game {
    private final ArrayList<Hand> hands;
    public static Deck deck = new Deck();
-   public static final int numberOfPlayers = 5;
+   public static final int numberOfPlayers = 2;
    public static final int numberOfCards = 5;
-   public static final boolean automaticCards = true;
+   public static final boolean automaticCards = false;
 
     public Game(ArrayList<Hand> hands){
         this.hands = hands;
@@ -23,7 +23,7 @@ public class Game {
             }
         }
         if (winners.size()<=1) {
-            System.out.println("The Winner is: " + winner);
+            System.out.println("The Winner is: " + winner.handScoreAndSubscoreText());
         }
         else {
             System.out.println("The Winners are: ");

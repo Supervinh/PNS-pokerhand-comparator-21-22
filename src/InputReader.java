@@ -3,6 +3,24 @@ import java.util.*;
 public class InputReader {
     public static final Scanner CONSOLE = new Scanner(System.in);
 
+    public static ArrayList[] typingHand() {
+        ArrayList<String> handsTextList = new ArrayList<>();
+        String input = CONSOLE.nextLine();
+        Collections.addAll(handsTextList, input.split("\\s+"));
+        return typingCard(handsTextList);
+    }
+
+    public static ArrayList[] typingCard(ArrayList<String> card) {
+        ArrayList<String> ranks = new ArrayList<>();
+        ArrayList<String> suits = new ArrayList<>();
+        for (String s: card) {
+            String[] cardText = s.split("(?)(?=Tr|Pi|Ca|Co)");
+            ranks.add(cardText[0]);
+            suits.add(cardText[1]);
+        }
+        return new ArrayList[]{ranks, suits};
+    }
+
     public static Rank typingRank() {
         System.out.print("Enter Rank: ");
         String input = CONSOLE.nextLine();

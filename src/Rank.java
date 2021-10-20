@@ -16,4 +16,12 @@ public enum Rank {
             System.out.println("The Value of " + rank + " is " + rank.value);
         }
     }
+
+    public static Rank rankFromScore(int n) {
+        for (Rank r : Rank.values()) {
+            if (r.getValue() == n)
+                return r;
+        }
+        return null;
+    }
 }
