@@ -11,7 +11,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-class CombinaisonTest {
+public class CombinaisonTest {
+    private Combinaison combinaison1;
+    private Combinaison combinaison2;
     private Card card1;
     private Card card2;
     private Card card3;
@@ -33,20 +35,21 @@ class CombinaisonTest {
         liste1 = new ArrayList<>();
         Collections.addAll(liste1, card1, card2, card3, card4, card5);
         hand1 = new Hand(liste1);
+        combinaison1 = new Combinaison(hand1);
 
 
         // Paire de Valets
         card1 = new Card(Rank.Valet, Suit.Trefle);
-        card2 = new Card(Rank.Valet, Suit.Coeur);
-        card3 = new Card(Rank.Quatre, Suit.Coeur);
-        card4 = new Card(Rank.Dix, Suit.Pique);
-        card5 = new Card(Rank.Deux, Suit.Trefle);
         liste1 = new ArrayList<>();
         Collections.addAll(liste1, card1, card2, card3, card4, card5);
         hand2 = new Hand(liste1);
     }
 
 
-    //@Test
-    //void
+    @Test
+    void Test(){
+        int score = combinaison1.getScoreOfHand();
+
+
+    }
 }

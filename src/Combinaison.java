@@ -86,7 +86,7 @@ public class Combinaison {
     }
 
     //Cherche la combinaison la plus grande dans la main
-    private int getScoreOfHand() {
+    int getScoreOfHand() {
         return this.isRoyalFlush();
     }
 
