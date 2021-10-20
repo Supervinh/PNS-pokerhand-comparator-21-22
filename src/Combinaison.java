@@ -1,15 +1,24 @@
 /*Classe permettant de repérer les différentes combinaisons possibles dans une main et
-d'assigner une force à chaque combinaison
- */
+* d'assigner une force à chaque combinaison
+* @author Matis
+* @author Louis
+* @author Vinh Faucher
+*/
 
 import java.util.*;
 
 public class Combinaison {
+    //Variable permettant d'initialiser une main
     private final Hand h;
+    //tableau des différentes couleurs possibles afin de repérer une couleur dans une main
     private final ArrayList<Integer> Suit_table = new ArrayList<>();
+    //un tableau des différentes cartes possibles afin de repérer les différentes combinaisons
     private final ArrayList<Integer> Rank_table = new ArrayList<>();
+    //Permet de détecter si une main possède une suite
     private final int numberOfConsecutiveCards;
+    //associe à chaque main un score en fonction des combinaisons qu'elle possède
     private final int score;
+    //associe à une main un deuxième score afin de comparer deux mains avec des combinaisons identiques
     private final int subscore;
 
 
@@ -22,6 +31,7 @@ public class Combinaison {
         this.subscore = this.getSubScoreOfHand();
     }
 
+    //Initialise le tableau des couleurs
     private void setSuit_table() {
         int Trefle = 0, Pique = 0, Coeur = 0, Carreau = 0;
         for (Card c: this.h.getCards()) {
@@ -38,6 +48,7 @@ public class Combinaison {
         Collections.addAll(this.Suit_table, Trefle, Pique, Coeur, Carreau);
     }
 
+    //Initialise le tableau des cartes
     private void setRank_table() {
         for (Rank rank: Rank.values()) {
             int sum = 0;
@@ -50,6 +61,7 @@ public class Combinaison {
         }
     }
 
+    //Initialise le compteur de cartes consécutives afin de voir si on a une suite
     private int setConsecutiveCards(){
         int compteur_max = 0, compteur = 0;
         for (Integer integer : this.Rank_table) {
@@ -63,6 +75,7 @@ public class Combinaison {
         return Math.max(compteur, compteur_max);
     }
 
+    //Associe un score à la main selon les combinaisons qu'elle possède
     public Rankings getHandRanking() {
         for (Rankings rankings : Rankings.values()) {
             if (rankings.getValue() == this.score) {
@@ -72,38 +85,47 @@ public class Combinaison {
         return Rankings.HighCard;
     }
 
+    //Cherche la combinaison la plus grande dans la main
     private int getScoreOfHand() {
         return this.isRoyalFlush();
     }
 
+    //Cherche si on a une quinte flush royale
     private int isRoyalFlush() {
         return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.As.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
+    //Cherche si on a une quinte flush
     private int isStraightFlush() {
         return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
     }
 
+    //Cherche si on a un carré
     private int isFourOfAKind() {
         return this.Rank_table.contains(4) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
     }
 
+    //Cherche si on a un full
     private int isFullHouse() {
         return (this.Rank_table.contains(3) && this.Rank_table.contains(2)) ? Rankings.FullHouse.getValue() : this.isFlush();
     }
 
+    //Cherche si on a une couleur
     private int isFlush() {
         return this.Suit_table.contains(5) ? Rankings.Flush.getValue() : this.isStraight();
     }
 
+    //Cherche si on a une suite
     private int isStraight() {
         return this.numberOfConsecutiveCards==5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
     }
 
+    //Cherche si on a un brelan
     private int isThreeOfAKind() {
         return this.Rank_table.contains(3) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
     }
 
+    //Cherche si on a une double paire
     private int isTwoPair() {
         int count=0;
         for (Integer i: this.Rank_table) {
@@ -114,10 +136,12 @@ public class Combinaison {
         return count==2 ? Rankings.TwoPair.getValue() : this.isPair();
     }
 
+    //Cherche si on a une paire
     private int isPair() {
         return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
 
+    //Associe un score
     private int getSubScoreOfHand() {
         return switch (this.getScoreOfHand()) {
             case 10 -> Rank.As.getValue();
