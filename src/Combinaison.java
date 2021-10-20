@@ -1,3 +1,7 @@
+/*Classe permettant de repérer les différentes combinaisons possibles dans une main et
+d'assigner une force à chaque combinaison
+ */
+
 import java.util.*;
 
 public class Combinaison {

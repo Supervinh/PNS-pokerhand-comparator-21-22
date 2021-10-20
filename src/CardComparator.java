@@ -1,3 +1,5 @@
+//Classe comparant 2 cartes entre elles
+
 import java.util.Comparator;
 
 public class CardComparator implements Comparator<Card> {

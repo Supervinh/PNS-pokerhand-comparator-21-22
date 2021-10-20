@@ -1,6 +1,11 @@
+/* Classe afin de créer une carte*/
+
 public class Card {
+    //représente la valeur de la carte
     private final Rank rank;
+    //représente la couleur de la carte
     private final Suit suit;
+    //représente la force de la carte
     private final int force;
 
     public Card(Rank r, Suit s){
