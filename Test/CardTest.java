@@ -15,10 +15,10 @@ class CardTest {
 
     @BeforeEach
     public void setUp() {
-        card1 = new Card(Rank.As, Suit.Coeur);
-        card2 = new Card(Rank.Valet, Suit.Pique);
-        card3 = new Card(Rank.Quatre, Suit.Trefle);
-        card4 = new Card(Rank.Dix, Suit.Carreau);
+        card1 = new Card(Rank.Ace, Suit.Coeur);
+        card2 = new Card(Rank.Jack, Suit.Pique);
+        card3 = new Card(Rank.Four, Suit.Trefle);
+        card4 = new Card(Rank.Ten, Suit.Carreau);
     }
 
     @Test
@@ -31,10 +31,10 @@ class CardTest {
 
     @Test
     public void TestGetRank() {
-        Assertions.assertEquals(Rank.As, card1.getRank());
-        Assertions.assertEquals(Rank.Valet, card2.getRank());
-        Assertions.assertEquals(Rank.Quatre, card3.getRank());
-        Assertions.assertEquals(Rank.Dix, card4.getRank());
+        Assertions.assertEquals(Rank.Ace, card1.getRank());
+        Assertions.assertEquals(Rank.Jack, card2.getRank());
+        Assertions.assertEquals(Rank.Four, card3.getRank());
+        Assertions.assertEquals(Rank.Ten, card4.getRank());
     }
 
     @Test

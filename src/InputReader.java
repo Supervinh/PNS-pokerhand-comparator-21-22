@@ -14,7 +14,7 @@ public class InputReader {
         ArrayList<String> ranks = new ArrayList<>();
         ArrayList<String> suits = new ArrayList<>();
         for (String s: card) {
-            String[] cardText = s.split("(?)(?=Tr|Pi|Ca|Co)");
+            String[] cardText = s.toLowerCase().split("(?=\\D+)(?)", 2);
             ranks.add(cardText[0]);
             suits.add(cardText[1]);
         }
@@ -29,19 +29,19 @@ public class InputReader {
 
     public static Rank typingRank(String input) {
         switch (input.toLowerCase()) {
-            case "2", "deux", "two" -> input = "Deux";
-            case "3", "trois", "three" -> input = "Trois";
-            case "4", "quatre", "four" -> input = "Quatre";
-            case "5", "cinq", "five" -> input = "Cinq";
+            case "2", "deux", "two" -> input = "Two";
+            case "3", "trois", "three" -> input = "Three";
+            case "4", "quatre", "four" -> input = "Four";
+            case "5", "cinq", "five" -> input = "Five";
             case "6", "six" -> input = "Six";
-            case "7", "sept", "seven" -> input = "Sept";
-            case "8", "huit", "eight" -> input = "Huit";
-            case "9", "neuf", "nine" -> input = "Neuf";
-            case "10", "dix", "ten" -> input = "Dix";
-            case "11", "v", "j", "valet", "jack" -> input = "Valet";
-            case "12", "d", "q", "dame", "queen" -> input = "Dame";
-            case "13", "r", "k", "roi", "king" -> input = "Roi";
-            case "1", "a", "as", "ace" -> input = "As";
+            case "7", "sept", "seven" -> input = "Seven";
+            case "8", "huit", "eight" -> input = "Eight";
+            case "9", "neuf", "nine" -> input = "Nine";
+            case "10", "dix", "ten" -> input = "Ten";
+            case "11", "v", "j", "valet", "jack" -> input = "Jack";
+            case "12", "d", "q", "dame", "queen" -> input = "Queen";
+            case "13", "r", "k", "roi", "king" -> input = "King";
+            case "1", "a", "as", "ace" -> input = "Ace";
             default -> {
             }
         }
