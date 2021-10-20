@@ -11,15 +11,6 @@ class InputReaderTest {
         Assertions.assertEquals(rank, output);
     }
 
-   /* @Test
-    void rankTest2(){
-        final String test = "Cinquante";
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            InputReader.typingRank(test);
-        });
-    }*/
-
     @Test
     void suitTest(){
         final String test = "Carreau";

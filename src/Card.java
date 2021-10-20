@@ -1,4 +1,10 @@
-/* Classe afin de créer une carte*/
+/**
+ * Classe afin de créer une carte
+ *
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ */
 
 public class Card {
     //représente la valeur de la carte

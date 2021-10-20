@@ -1,3 +1,10 @@
+/* Tests sur la classe Hand
+ *
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ * */
+
 import org.junit.jupiter.api.*;
 import java.util.*;
 
