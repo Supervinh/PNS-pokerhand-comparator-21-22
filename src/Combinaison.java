@@ -75,6 +75,18 @@ public class Combinaison {
         return Math.max(compteur, compteur_max);
     }
 
+    ArrayList<Integer> getSuit_table() {
+        return Suit_table;
+    }
+
+    ArrayList<Integer> getRank_table() {
+        return Rank_table;
+    }
+
+    int getNumberOfConsecutiveCards() {
+        return numberOfConsecutiveCards;
+    }
+
     //Associe un score à la main selon les combinaisons qu'elle possède
     public Rankings getHandRanking() {
         for (Rankings rankings : Rankings.values()) {
