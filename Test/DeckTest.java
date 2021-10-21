@@ -8,6 +8,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import java.util.*;
 
 
 class DeckTest {
@@ -34,5 +35,12 @@ class DeckTest {
         while (deck.getDeck().size() != 0) {
             Assertions.assertEquals(deck.getDeck().get(0), deck.drawCard());
         }
+    }
+
+    @Test
+    public void TestShuffleDeck(){
+        ArrayList<Card> base_deck = deck.getDeck();
+        deck.shuffleDeck();
+        Assertions.assertNotEquals(base_deck, deck.getDeck());
     }
 }

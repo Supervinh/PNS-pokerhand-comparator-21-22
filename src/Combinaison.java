@@ -104,7 +104,7 @@ public class Combinaison {
     }
 
     //Cherche si on a une quinte flush royale
-    private int isRoyalFlush() {
+    int isRoyalFlush() {
         return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.Ace.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
@@ -150,7 +150,7 @@ public class Combinaison {
     }
 
     //Cherche si on a une paire
-    private int isPair() {
+    int isPair() {
         return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
 
