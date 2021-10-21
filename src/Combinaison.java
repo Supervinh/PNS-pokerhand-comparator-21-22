@@ -109,37 +109,37 @@ public class Combinaison {
     }
 
     //Cherche si on a une quinte flush
-    private int isStraightFlush() {
+    int isStraightFlush() {
         return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
     }
 
     //Cherche si on a un carré
-    private int isFourOfAKind() {
+    int isFourOfAKind() {
         return this.Rank_table.contains(4) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
     }
 
     //Cherche si on a un full
-    private int isFullHouse() {
+    int isFullHouse() {
         return (this.Rank_table.contains(3) && this.Rank_table.contains(2)) ? Rankings.FullHouse.getValue() : this.isFlush();
     }
 
     //Cherche si on a une couleur
-    private int isFlush() {
+    int isFlush() {
         return this.Suit_table.contains(5) ? Rankings.Flush.getValue() : this.isStraight();
     }
 
     //Cherche si on a une suite
-    private int isStraight() {
+    int isStraight() {
         return this.numberOfConsecutiveCards==5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
     }
 
     //Cherche si on a un brelan
-    private int isThreeOfAKind() {
+    int isThreeOfAKind() {
         return this.Rank_table.contains(3) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
     }
 
     //Cherche si on a une double paire
-    private int isTwoPair() {
+    int isTwoPair() {
         int count=0;
         for (Integer i: this.Rank_table) {
             if (i == 2) {
