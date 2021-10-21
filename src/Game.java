@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Game {
    private final ArrayList<Hand> hands;
    public static Deck deck = new Deck();
-   public static final int numberOfPlayers = 5;
+   public static final int numberOfPlayers = 10;
    public static final int numberOfCards = 5;
    public static final boolean automaticCards = true;
 
@@ -14,28 +14,31 @@ public class Game {
     public void printWinner() {
         this.sortHands();
         Hand winner = this.hands.get(this.hands.size()-1);
-        ArrayList<Hand> winners = new ArrayList<>();
-        for (Hand h: this.hands) {
-            if (h.getScore()==winner.getScore() && h.getSubscore()==winner.getSubscore()) {
-                if (winner.getScore()!=0) {
-                    winners.add(h);
+        if (winner.getScore()!=1) {
+            ArrayList<Hand> winners = new ArrayList<>();
+            for (Hand h: this.hands) {
+                if (h.getScore()==winner.getScore() && h.getSubscore()==winner.getSubscore()) {
+                    if (winner.getScore()!=0) {
+                        winners.add(h);
+                    }
                 }
             }
-        }
-        if (winners.size()<=1) {
-            System.out.println("The Winner is: " + winner);
-        }
-
-        else {
-            if (numberOfPlayers == winners.size()){
-                System.out.println("Egalite");
-            }
-            else {
-                System.out.println("The Winners are: ");
-                for (Hand h : winners) {
-                    System.out.println(h);
+            if (winners.size()<=1) {
+                System.out.println("The Winner is: " + winner.handScoreAndSubscoreText());
+            } else {
+                System.out.println(winners);
+                if (numberOfPlayers == winners.size()){
+                    System.out.println("Egalite");
+                }
+                else {
+                    System.out.println("The Winners are: ");
+                    for (Hand h : winners) {
+                        System.out.println(h);
+                    }
                 }
             }
+        } else {
+            System.out.println("The Winner is: " + winner.handScoreAndSubscoreText());
         }
     }
 

@@ -2,7 +2,7 @@ import org.junit.jupiter.api.*;
 
 
 class InputReaderTest {
-    private Rank output = Rank.Sept;
+    private Rank output = Rank.Seven;
     private Suit output2 = Suit.Carreau;
     @Test
     void rankTest(){

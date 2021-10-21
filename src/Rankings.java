@@ -1,7 +1,9 @@
-/* Liste explicite des combinaisons possibles associées à une valeur
- * @author Matis Herrmann
- * @author Louis Hattiger
- * @author Vinh Faucher
+/**
+ * Liste explicite des combinaisons possibles associées à une valeur
+ *
+ * @Author Matis Herrmann
+ * @Author Louis Hattiger
+ * @Author Vinh Faucher
  */
 
 public enum Rankings {

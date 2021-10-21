@@ -1,10 +1,12 @@
-/* Classe qui permet de comparer deux mains de poker
+import java.util.Comparator;
+
+/**
+ * Classe qui permet de comparer deux mains de poker
+ *
  * @author Matis Herrmann
  * @author Louis Hattiger
  * @author Vinh Faucher
  */
-
-import java.util.Comparator;
 
 public class HandComparator implements Comparator<Hand> {
     @Override

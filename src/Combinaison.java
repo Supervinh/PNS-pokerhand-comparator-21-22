@@ -1,11 +1,12 @@
-/*Classe permettant de repérer les différentes combinaisons possibles dans une main et
-* d'assigner une force à chaque combinaison
+import java.util.*;
+
+/**
+ * Classe permettant de repérer les différentes combinaisons possibles dans une main et d'assigner une force à chaque combinaison.
+ *
  * @author Matis Herrmann
  * @author Louis Hattiger
  * @author Vinh Faucher
-*/
-
-import java.util.*;
+ */
 
 public class Combinaison {
     //Variable permettant d'initialiser une main
@@ -98,13 +99,13 @@ public class Combinaison {
     }
 
     //Cherche la combinaison la plus grande dans la main
-    private int getScoreOfHand() {
+    int getScoreOfHand() {
         return this.isRoyalFlush();
     }
 
     //Cherche si on a une quinte flush royale
     private int isRoyalFlush() {
-        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.As.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
+        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.Ace.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
     //Cherche si on a une quinte flush
@@ -156,7 +157,7 @@ public class Combinaison {
     //Associe un score à la main en fonction des combinaisons qu'elle possède
     private int getSubScoreOfHand() {
         return switch (this.getScoreOfHand()) {
-            case 10 -> Rank.As.getValue();
+            case 10 -> Rank.Ace.getValue();
             case 9, 6, 5, 1 -> this.subScoreOfHighCard();
             case 8 -> this.subscoreMethodN(4);
             case 7, 4 -> this.subscoreMethodN(3);

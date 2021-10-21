@@ -11,7 +11,8 @@ import java.util.*;
 import java.util.Collections;
 
 
-class CombinaisonTest {
+
+public class CombinaisonTest {
     private Combinaison combinaison1;
     private Card card1;
     private Card card2;
@@ -26,22 +27,19 @@ class CombinaisonTest {
     @BeforeEach
     public void setUp() {
         // Carte dominante
-        card1 = new Card(Rank.As, Suit.Coeur);
-        card2 = new Card(Rank.Valet, Suit.Pique);
-        card3 = new Card(Rank.Quatre, Suit.Trefle);
-        card4 = new Card(Rank.Dix, Suit.Carreau);
-        card5 = new Card(Rank.Deux, Suit.Carreau);
+        card1 = new Card(Rank.Ace, Suit.Coeur);
+        card2 = new Card(Rank.Jack, Suit.Pique);
+        card3 = new Card(Rank.Four, Suit.Trefle);
+        card4 = new Card(Rank.Ten, Suit.Carreau);
+        card5 = new Card(Rank.Two, Suit.Carreau);
         liste1 = new ArrayList<>();
         Collections.addAll(liste1, card1, card2, card3, card4, card5);
         hand1 = new Hand(liste1);
+        combinaison1 = new Combinaison(hand1);
 
 
         // Paire de Valets
-        card1 = new Card(Rank.Valet, Suit.Trefle);
-        card2 = new Card(Rank.Valet, Suit.Coeur);
-        card3 = new Card(Rank.Quatre, Suit.Coeur);
-        card4 = new Card(Rank.Dix, Suit.Pique);
-        card5 = new Card(Rank.Deux, Suit.Trefle);
+        card1 = new Card(Rank.Jack, Suit.Trefle);
         liste1 = new ArrayList<>();
         Collections.addAll(liste1, card1, card2, card3, card4, card5);
         hand2 = new Hand(liste1);

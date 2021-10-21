@@ -1,9 +1,12 @@
-/*Classe comparant 2 cartes entre elles
- * @author Matis Herrmann
- * @author Louis Hattiger
- * @author Vinh Faucher
-*/
 import java.util.Comparator;
+
+/**
+ * Classe comparant 2 cartes entre elles
+ *
+ * @Author Matis Herrmann
+ * @Author Louis Hattiger
+ * @Author Vinh Faucher
+*/
 
 public class CardComparator implements Comparator<Card> {
     @Override

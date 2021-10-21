@@ -1,10 +1,13 @@
-/* Classe créant un deck de 52 cartes
- * @author Matis Herrmann
- * @author Louis Hattiger
- * @author Vinh Faucher
- */
 import java.util.ArrayList;
 import java.util.Random;
+
+/**
+ * Classe créant un deck de 52 cartes
+ *
+ * @Author Matis Herrmann
+ * @Author Louis Hattiger
+ * @Author Vinh Faucher
+ */
 
 public class Deck {
     private ArrayList<Card> deck = new ArrayList<>();
@@ -59,7 +62,7 @@ public class Deck {
             }
             return c;
         }
-        System.out.println("Card has already been Drawn - Try again.");
+        System.out.println(c + " has already been Drawn - Try again.");
         return takeCard(new Card(InputReader.typingRank(), InputReader.typingSuit()));
     }
 

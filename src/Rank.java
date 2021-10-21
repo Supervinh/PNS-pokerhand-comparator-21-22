@@ -1,11 +1,13 @@
-/* Liste explicite des valeurs possibles associées à leur force
- * @author Matis Herrmann
- * @author Louis Hattiger
- * @author Vinh Faucher
+/**
+ * Liste explicite des valeurs possibles associées à leur force
+ *
+ * @Author Matis Herrmann
+ * @Author Louis Hattiger
+ * @Author Vinh Faucher
  */
 
 public enum Rank {
-    Deux(2), Trois(3), Quatre(4), Cinq(5), Six(6), Sept(7), Huit(8), Neuf(9), Dix(10), Valet(11), Dame(12), Roi(13), As(14);
+    Two(2), Trois(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13), Ace(14);
 
     private final int value;
     Rank(int value) {
@@ -21,5 +23,13 @@ public enum Rank {
         for (Rank rank : list) {
             System.out.println("The Value of " + rank + " is " + rank.value);
         }
+    }
+
+    public static Rank rankFromScore(int n) {
+        for (Rank r : Rank.values()) {
+            if (r.getValue() == n)
+                return r;
+        }
+        return null;
     }
 }

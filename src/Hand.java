@@ -1,10 +1,12 @@
-/* Classe qui permet de créer les mains de poker
- * @author Matis Herrmann
- * @author Louis Hattiger
- * @author Vinh Faucher
- */
-
 import java.util.*;
+
+/**
+ * Classe qui permet de créer les mains de poker
+ *
+ * @Author Matis Herrmann
+ * @Author Louis Hattiger
+ * @Author Vinh Faucher
+ */
 
 public class Hand {
     // Le numéro du joueur
@@ -52,7 +54,11 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking() + " \u25B6 " + this.getSubscore();
+        return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking(); // + " \u25B6 " + this.getSubscore();
+    }
+
+    public String handScoreAndSubscoreText() {
+        return this.getName() + " with a " + this.C.getHandRanking() + ": " + Rank.rankFromScore(this.getSubscore());
     }
 
     public int compareTo(Hand h) {
