@@ -7,7 +7,7 @@
  */
 
 public enum Rank {
-    Two(2), Trois(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13), Ace(14);
+    Two(2), Three(3), Four(4), Five(5), Six(6), Seven(7), Eight(8), Nine(9), Ten(10), Jack(11), Queen(12), King(13), Ace(14);
 
     private final int value;
     Rank(int value) {
@@ -16,13 +16,6 @@ public enum Rank {
 
     public int getValue() {
         return this.value;
-    }
-
-    public void showValues() {
-        Rank[] list = Rank.values();
-        for (Rank rank : list) {
-            System.out.println("The Value of " + rank + " is " + rank.value);
-        }
     }
 
     public static Rank rankFromScore(int n) {

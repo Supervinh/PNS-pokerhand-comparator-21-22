@@ -9,15 +9,15 @@ import org.junit.jupiter.api.*;
 import java.util.*;
 
 class HandTest {
-    private final Card[] c1 = new Card[]{new Card(Rank.Two, Suit.Pique), new Card(Rank.Nine, Suit.Trefle), new Card(Rank.Trois, Suit.Carreau), new Card(Rank.Jack, Suit.Carreau), new Card(Rank.Five, Suit.Carreau)};
+    private final Card[] c1 = new Card[]{new Card(Rank.Two, Suit.Pique), new Card(Rank.Nine, Suit.Trefle), new Card(Rank.Three, Suit.Carreau), new Card(Rank.Jack, Suit.Carreau), new Card(Rank.Five, Suit.Carreau)};
     private final Card[] c2 = new Card[]{new Card(Rank.Ace, Suit.Coeur), new Card(Rank.Seven, Suit.Pique), new Card(Rank.Jack, Suit.Trefle), new Card(Rank.Eight, Suit.Coeur), new Card(Rank.Ace, Suit.Trefle)};
     private final Card[] c3 = new Card[]{new Card(Rank.Ace, Suit.Coeur), new Card(Rank.Seven, Suit.Pique), new Card(Rank.Eight, Suit.Trefle), new Card(Rank.Eight, Suit.Coeur), new Card(Rank.Ace, Suit.Trefle)};
     private final Card[] c4 = new Card[]{new Card(Rank.Ace, Suit.Coeur), new Card(Rank.Seven, Suit.Pique), new Card(Rank.Ace, Suit.Pique), new Card(Rank.Eight, Suit.Coeur), new Card(Rank.Ace, Suit.Trefle)};
-    private final Card[] c5 = new Card[]{new Card(Rank.Trois, Suit.Coeur), new Card(Rank.Seven, Suit.Pique), new Card(Rank.Four, Suit.Pique), new Card(Rank.Six, Suit.Coeur), new Card(Rank.Five, Suit.Trefle)};
-    private final Card[] c6 = new Card[]{new Card(Rank.Trois, Suit.Pique), new Card(Rank.King, Suit.Pique), new Card(Rank.Jack, Suit.Pique), new Card(Rank.Six, Suit.Pique), new Card(Rank.Nine, Suit.Pique)};
+    private final Card[] c5 = new Card[]{new Card(Rank.Three, Suit.Coeur), new Card(Rank.Seven, Suit.Pique), new Card(Rank.Four, Suit.Pique), new Card(Rank.Six, Suit.Coeur), new Card(Rank.Five, Suit.Trefle)};
+    private final Card[] c6 = new Card[]{new Card(Rank.Three, Suit.Pique), new Card(Rank.King, Suit.Pique), new Card(Rank.Jack, Suit.Pique), new Card(Rank.Six, Suit.Pique), new Card(Rank.Nine, Suit.Pique)};
     private final Card[] c7 = new Card[]{new Card(Rank.Four, Suit.Coeur), new Card(Rank.Five, Suit.Pique), new Card(Rank.Four, Suit.Pique), new Card(Rank.Five, Suit.Coeur), new Card(Rank.Five, Suit.Trefle)};
     private final Card[] c8 = new Card[]{new Card(Rank.Two, Suit.Coeur), new Card(Rank.Five, Suit.Pique), new Card(Rank.Five, Suit.Carreau), new Card(Rank.Five, Suit.Coeur), new Card(Rank.Five, Suit.Trefle)};
-    private final Card[] c9 = new Card[]{new Card(Rank.Trois, Suit.Coeur), new Card(Rank.Seven, Suit.Coeur), new Card(Rank.Four, Suit.Coeur), new Card(Rank.Six, Suit.Coeur), new Card(Rank.Five, Suit.Coeur)};
+    private final Card[] c9 = new Card[]{new Card(Rank.Three, Suit.Coeur), new Card(Rank.Seven, Suit.Coeur), new Card(Rank.Four, Suit.Coeur), new Card(Rank.Six, Suit.Coeur), new Card(Rank.Five, Suit.Coeur)};
     private final Card[] c10 = new Card[]{new Card(Rank.King, Suit.Coeur), new Card(Rank.Queen, Suit.Coeur), new Card(Rank.Ace, Suit.Coeur), new Card(Rank.Jack, Suit.Coeur), new Card(Rank.Ten, Suit.Coeur)};
     private final ArrayList<Card> C1 = new ArrayList<>();
     private final ArrayList<Card> C2 = new ArrayList<>();

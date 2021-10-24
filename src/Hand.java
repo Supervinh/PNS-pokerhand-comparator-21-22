@@ -54,7 +54,7 @@ public class Hand {
     }
 
     public String toString(){
-        return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking(); // + " \u25B6 " + this.getSubscore();
+        return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking();
     }
 
     public String handScoreAndSubscoreText() {
