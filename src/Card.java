@@ -1,43 +1,42 @@
 /**
- * Classe afin de créer une carte
+ * Classe permettant de crée des cartes de poker.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
  * @author Vinh Faucher
  */
-
 public class Card {
-    //représente la valeur de la carte
+    //Valeur de la carte
     private final Rank rank;
-    //représente la couleur de la carte
+    //Couleur de la carte
     private final Suit suit;
-    //représente la force de la carte
+    //Force de la carte
     private final int force;
 
-    public Card(Rank r, Suit s){
+    public Card(Rank r, Suit s) {
         this.rank = r;
         this.suit = s;
         this.force = this.rank.getValue();
     }
 
-    public Rank getRank(){
+    public Rank getRank() {
         return this.rank;
     }
 
-    public Suit getSuit(){
+    public Suit getSuit() {
         return this.suit;
     }
 
-    public int getForce(){
+    public int getForce() {
         return this.force;
     }
 
-    public String toString(){
+    public String toString() {
         return "[" + this.rank + ", " + this.suit + "]";
     }
 
     public int compareTo(Card c2) {
-        return this.getForce()-c2.getForce();
+        return this.getForce() - c2.getForce();
     }
 
     @Override

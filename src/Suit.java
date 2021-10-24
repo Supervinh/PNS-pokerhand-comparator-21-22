@@ -1,11 +1,10 @@
 /**
  * Liste explicite des couleurs possibles
  *
- * @Author Matis Herrmann
- * @Author Louis Hattiger
- * @Author Vinh Faucher
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
  */
-
 public enum Suit {
     Coeur, Carreau, Pique, Trefle;
 }

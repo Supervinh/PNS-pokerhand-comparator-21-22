@@ -1,27 +1,34 @@
 import java.util.ArrayList;
 
+/**
+ * Classe permettant de gerer le jeu et afficher les gagnants.
+ *
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ */
 public class Game {
-   private final ArrayList<Hand> hands;
-   public static Deck deck = new Deck();
-   public static final int numberOfPlayers = 2;
-   public static final int numberOfCards = 5;
-   public static final boolean automaticCards = false;
+    private final ArrayList<Hand> hands;
+    public static Deck deck = new Deck();
+    public static final int numberOfPlayers = 2;
+    public static final int numberOfCards = 5;
+    public static final boolean automaticCards = false;
 
-    public Game(ArrayList<Hand> hands){
+    public Game(ArrayList<Hand> hands) {
         this.hands = hands;
     }
 
     public void printWinner() {
         this.sortHands();
-        Hand winner = this.hands.get(this.hands.size()-1);
+        Hand winner = this.hands.get(this.hands.size() - 1);
         ArrayList<Hand> winners = new ArrayList<>();
         for (Hand h : this.hands) {
-            if (h.compareTo(winner)==0) {
+            if (h.compareTo(winner) == 0) {
                 winners.add(h);
             }
         }
-        if (winners.size()>1) {
-            if (winners.size()==this.hands.size()) {
+        if (winners.size() > 1) {
+            if (winners.size() == this.hands.size()) {
                 System.out.println("All round Draw");
             }
             System.out.println("The Winners are: ");
@@ -37,14 +44,14 @@ public class Game {
         this.sortHands();
         System.out.println("===Rankings===");
         String t;
-        for (int i = 1; i < this.hands.size()+1; i++) {
+        for (int i = 1; i < this.hands.size() + 1; i++) {
             switch (i) {
-                case 1 -> t="st";
-                case 2 -> t="nd";
-                case 3 -> t="rd";
-                default -> t="th";
+                case 1 -> t = "st";
+                case 2 -> t = "nd";
+                case 3 -> t = "rd";
+                default -> t = "th";
             }
-            System.out.println(i + t + ": " + this.hands.get(this.hands.size()-i).getName());
+            System.out.println(i + t + ": " + this.hands.get(this.hands.size() - i).getName());
         }
         System.out.println("==============");
     }
@@ -53,9 +60,9 @@ public class Game {
         this.hands.sort(new HandComparator());
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder msg = new StringBuilder();
-        for (Hand h: this.hands) {
+        for (Hand h : this.hands) {
             msg.append(h).append("\n");
         }
         return msg.toString();

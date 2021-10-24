@@ -7,7 +7,6 @@ import java.util.*;
  * @author Louis Hattiger
  * @author Vinh Faucher
  */
-
 public class Combinaison {
     //Variable permettant d'initialiser une main
     private final Hand h;
@@ -23,7 +22,7 @@ public class Combinaison {
     private final int subscore;
 
 
-    public Combinaison (Hand h){
+    public Combinaison(Hand h) {
         this.h = h;
         this.setSuit_table();
         this.setRank_table();
@@ -35,7 +34,7 @@ public class Combinaison {
     //Initialise le tableau des couleurs et le remplit
     private void setSuit_table() {
         int Trefle = 0, Pique = 0, Coeur = 0, Carreau = 0;
-        for (Card c: this.h.getCards()) {
+        for (Card c : this.h.getCards()) {
             if (c.getSuit().equals(Suit.Trefle)) {
                 Trefle++;
             } else if (c.getSuit().equals(Suit.Pique)) {
@@ -51,11 +50,11 @@ public class Combinaison {
 
     //Initialise le tableau des cartes et le remplit
     private void setRank_table() {
-        for (Rank rank: Rank.values()) {
+        for (Rank rank : Rank.values()) {
             int sum = 0;
-            for (Card c: this.h.getCards()) {
-                if (c.getRank().equals(rank)){
-                   sum++;
+            for (Card c : this.h.getCards()) {
+                if (c.getRank().equals(rank)) {
+                    sum++;
                 }
             }
             this.Rank_table.add(sum);
@@ -63,7 +62,7 @@ public class Combinaison {
     }
 
     //Initialise le compteur de cartes consécutives afin de voir si on a une suite
-    private int setConsecutiveCards(){
+    private int setConsecutiveCards() {
         int compteur_max = 0, compteur = 0;
         for (Integer integer : this.Rank_table) {
             if (integer != 0) {
@@ -105,12 +104,12 @@ public class Combinaison {
 
     //Cherche si on a une quinte flush royale
     int isRoyalFlush() {
-        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.Ace.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
+        return (this.numberOfConsecutiveCards == 5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.Ace.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
     //Cherche si on a une quinte flush
     int isStraightFlush() {
-        return (this.numberOfConsecutiveCards==5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
+        return (this.numberOfConsecutiveCards == 5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
     }
 
     //Cherche si on a un carré
@@ -130,7 +129,7 @@ public class Combinaison {
 
     //Cherche si on a une suite
     int isStraight() {
-        return this.numberOfConsecutiveCards==5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
+        return this.numberOfConsecutiveCards == 5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
     }
 
     //Cherche si on a un brelan
@@ -140,13 +139,13 @@ public class Combinaison {
 
     //Cherche si on a une double paire
     int isTwoPair() {
-        int count=0;
-        for (Integer i: this.Rank_table) {
+        int count = 0;
+        for (Integer i : this.Rank_table) {
             if (i == 2) {
                 count++;
             }
         }
-        return count==2 ? Rankings.TwoPair.getValue() : this.isPair();
+        return count == 2 ? Rankings.TwoPair.getValue() : this.isPair();
     }
 
     //Cherche si on a une paire
@@ -173,10 +172,10 @@ public class Combinaison {
 
     // ???????????????????????????
     private int subscoreMethodN(int n) {
-        int maxSubscore=0;
+        int maxSubscore = 0;
         for (int i = 0; i < this.Rank_table.size(); i++) {
-            if (this.Rank_table.get(i)==n) {
-                maxSubscore = Math.max(maxSubscore,Rank.values()[i].getValue());
+            if (this.Rank_table.get(i) == n) {
+                maxSubscore = Math.max(maxSubscore, Rank.values()[i].getValue());
             }
         }
         return maxSubscore;

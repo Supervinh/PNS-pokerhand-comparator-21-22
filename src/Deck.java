@@ -2,13 +2,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Classe créant un deck de 52 cartes
+ * Classe permettant de crée un jeu de carte pour ensuite les piocher.
  *
- * @Author Matis Herrmann
- * @Author Louis Hattiger
- * @Author Vinh Faucher
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
  */
-
 public class Deck {
     private ArrayList<Card> deck = new ArrayList<>();
 
@@ -48,7 +47,7 @@ public class Deck {
 
     // mode de pioche classique
     public Card takeCard(Card c) {
-        if (this.deck.isEmpty()){
+        if (this.deck.isEmpty()) {
             System.out.println("No more Cards - End of Game.");
             System.exit(0);
             return null;

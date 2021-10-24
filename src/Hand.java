@@ -1,13 +1,12 @@
 import java.util.*;
 
 /**
- * Classe qui permet de créer les mains de poker
+ * Classe permettant de créer les mains de poker
  *
- * @Author Matis Herrmann
- * @Author Louis Hattiger
- * @Author Vinh Faucher
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
  */
-
 public class Hand {
     // Le numéro du joueur
     private static int playerNum = 0;
@@ -22,7 +21,7 @@ public class Hand {
     // Le score associé à la carte dominante
     private final int subscore;
 
-    public Hand(ArrayList<Card> cards){
+    public Hand(ArrayList<Card> cards) {
         Hand.playerNum++;
         this.name += Hand.playerNum;
         this.cards = cards;
@@ -33,8 +32,8 @@ public class Hand {
     }
 
 
-    public Card highestCard(ArrayList<Card> cards){
-        return cards.get(cards.size()-1);
+    public Card highestCard(ArrayList<Card> cards) {
+        return cards.get(cards.size() - 1);
     }
 
     public ArrayList<Card> getCards() {
@@ -53,12 +52,12 @@ public class Hand {
         return name;
     }
 
-    public String toString(){
+    public String toString() {
         return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking();
     }
 
     public String handScoreAndSubscoreText() {
-        return this.getName() + " with a " + this.C.getHandRanking() + ": " + Rank.rankFromScore(this.getSubscore());
+        return this.getName() + " with a " + this.C.getHandRanking() + ": " + Rank.rankFromScore(this.subscore);
     }
 
     public int compareTo(Hand h) {
@@ -79,31 +78,31 @@ public class Hand {
     }
 
     public int methodTwoPair(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
-        c1.removeIf(card -> card.getForce()==this.getSubscore());
-        c2.removeIf(card -> card.getForce()==h.getSubscore());
+        c1.removeIf(card -> card.getForce() == this.subscore);
+        c2.removeIf(card -> card.getForce() == h.subscore);
         Hand h1 = new Hand(c1);
         Hand h2 = new Hand(c2);
-        int dif = h1.getSubscore() - h2.getSubscore();
+        int dif = h1.subscore - h2.subscore;
         if (dif == 0) {
-            c1.removeIf(card -> card.getForce()==h1.getSubscore());
-            c2.removeIf(card -> card.getForce()==h2.getSubscore());
+            c1.removeIf(card -> card.getForce() == h1.subscore);
+            c2.removeIf(card -> card.getForce() == h2.subscore);
             dif = this.methodHighestCard(h, c1, c2);
         }
         return dif;
     }
 
     public int methodPair(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
-        c1.removeIf(card -> card.getForce()==this.getSubscore());
-        c2.removeIf(card -> card.getForce()==h.getSubscore());
+        c1.removeIf(card -> card.getForce() == this.subscore);
+        c2.removeIf(card -> card.getForce() == h.subscore);
         return this.methodHighestCard(h, c1, c2);
     }
 
     public int methodHighestCard(Hand h, ArrayList<Card> c1, ArrayList<Card> c2) {
-        int dif=0;
-        while (!c1.isEmpty() && !c2.isEmpty() && dif==0) {
+        int dif = 0;
+        while (!c1.isEmpty() && !c2.isEmpty() && dif == 0) {
             dif = this.highestCard(c1).getForce() - h.highestCard(c2).getForce();
-            c1.remove(c1.size()-1);
-            c2.remove(c2.size()-1);
+            c1.remove(c1.size() - 1);
+            c2.remove(c2.size() - 1);
         }
         return dif;
     }

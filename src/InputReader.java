@@ -1,5 +1,12 @@
 import java.util.*;
 
+/**
+ * Classe permettant de faire des entrées sur claviers dans le Terminal et les vérifiers.
+ *
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ */
 public class InputReader {
     public static final Scanner CONSOLE = new Scanner(System.in);
 
@@ -13,7 +20,7 @@ public class InputReader {
     public static ArrayList[] typingCard(ArrayList<String> card) {
         ArrayList<String> ranks = new ArrayList<>();
         ArrayList<String> suits = new ArrayList<>();
-        for (String s: card) {
+        for (String s : card) {
             String[] cardText = s.toLowerCase().split("(?=\\D+)(?)", 2);
             ranks.add(cardText[0]);
             suits.add(cardText[1]);
@@ -53,7 +60,7 @@ public class InputReader {
         }
     }
 
-    public static Suit typingSuit(){
+    public static Suit typingSuit() {
         System.out.print("Enter Suit: ");
         String input = CONSOLE.nextLine();
         return typingSuit(input);
