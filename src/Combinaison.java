@@ -216,7 +216,9 @@ public class Combinaison {
         return this.h.highestCard(this.h.getCards()).getForce();
     }
 
-    // ???????????????????????????
+    /**
+     * @return Le subscore de la main.
+     */
     private int subscoreMethodN(int n) {
         int maxSubscore = 0;
         for (int i = 0; i < this.Rank_table.size(); i++) {
