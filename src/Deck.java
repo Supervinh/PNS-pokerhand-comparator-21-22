@@ -25,6 +25,9 @@ public class Deck {
         }
     }
 
+    /**
+     * Mélange le deck de manière aléatoire en utilisant un deck temporaire
+     */
     public void shuffleDeck() {
         Random rand = new Random();
         ArrayList<Card> tempDeck = new ArrayList<>();
@@ -35,7 +38,10 @@ public class Deck {
         this.deck = tempDeck;
     }
 
-    // mode de pioche automatique (pour pouvoir tester les tests plus rapidement)
+    /**
+     * Pioche automatique pour créer une main (pour pouvoir faire nos tests plus rapidement)
+     * @return la première carte du deck si le deck n'est pas vide sinon null.
+     */
     public Card drawCard() {
         if (!this.deck.isEmpty()) {
             return this.deck.remove(0);
@@ -45,7 +51,10 @@ public class Deck {
         return null;
     }
 
-    // mode de pioche classique
+    /**
+     * Pioche classique pour créer une main en vérifiant que la carte n'a pas déjà été tiré
+     * @return la carte c choisie si le deck contient la carte, null si le deck et vide et s'appelle elle même si la carte a déjà été piochée
+     */
     public Card takeCard(Card c) {
         if (this.deck.isEmpty()) {
             System.out.println("No more Cards - End of Game.");
@@ -65,12 +74,18 @@ public class Deck {
         return takeCard(new Card(InputReader.typingRank(), InputReader.typingSuit()));
     }
 
+    /**
+     * @return le deck
+     */
     public ArrayList<Card> getDeck() {
         return deck;
     }
 
+    /**
+     * @return un string donnant le deck et le nombre de cartes
+     */
     @Override
     public String toString() {
-        return "Deck " + deck + ", nbCards=" + deck.size();
+        return "Deck :" + deck + ", nbCards=" + deck.size();
     }
 }

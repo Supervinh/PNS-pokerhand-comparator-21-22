@@ -31,7 +31,9 @@ public class Combinaison {
         this.subscore = this.getSubScoreOfHand();
     }
 
-    //Initialise le tableau des couleurs et le remplit
+    /**
+     * Remplit le tableau de couleurs des cartes de la main
+     */
     private void setSuit_table() {
         int Trefle = 0, Pique = 0, Coeur = 0, Carreau = 0;
         for (Card c : this.h.getCards()) {
@@ -48,7 +50,9 @@ public class Combinaison {
         Collections.addAll(this.Suit_table, Trefle, Pique, Coeur, Carreau);
     }
 
-    //Initialise le tableau des cartes et le remplit
+    /**
+     * Remplit le tableau du rang des cartes de la main
+     */
     private void setRank_table() {
         for (Rank rank : Rank.values()) {
             int sum = 0;
@@ -61,7 +65,10 @@ public class Combinaison {
         }
     }
 
-    //Initialise le compteur de cartes consécutives afin de voir si on a une suite
+    /**
+     * Compte les cartes consécutives afin de voir si on a une suite
+     * @return le nombre maximum de cartes consécutives dans une main
+     */
     private int setConsecutiveCards() {
         int compteur_max = 0, compteur = 0;
         for (Integer integer : this.Rank_table) {
@@ -75,14 +82,23 @@ public class Combinaison {
         return Math.max(compteur, compteur_max);
     }
 
+    /**
+     * @return le tableau de couleurs d'une main
+     */
     ArrayList<Integer> getSuit_table() {
         return Suit_table;
     }
 
+    /**
+     * @return le tableau de rangs d'une main
+     */
     ArrayList<Integer> getRank_table() {
         return Rank_table;
     }
 
+    /**
+     * @return le nombre maximal de cartes consécutives d'une main
+     */
     int getNumberOfConsecutiveCards() {
         return numberOfConsecutiveCards;
     }
@@ -97,47 +113,74 @@ public class Combinaison {
         return Rankings.HighCard;
     }
 
-    //Cherche la combinaison la plus grande dans la main
+    /**
+     * Cherche la plus grande combinaison dans la main
+     * @return le résultat de la méthode isRoyalFlush(), à la fin ça retournera un int équivalent à la valeur de la plus grande combinaison trouvée
+     */
     int getScoreOfHand() {
         return this.isRoyalFlush();
     }
 
-    //Cherche si on a une quinte flush royale
+    /**
+     * Cherche si on a une quinte flush royale
+     * @return le score de la combinaison cherchée sinon appelle isStraightFlush()
+     */
     int isRoyalFlush() {
         return (this.numberOfConsecutiveCards == 5 && this.Suit_table.contains(5) && this.h.getCards().stream().anyMatch(card -> card.getForce() == Rank.Ace.getValue())) ? Rankings.RoyalFlush.getValue() : this.isStraightFlush();
     }
 
-    //Cherche si on a une quinte flush
+    /**
+     * Cherche si on a une quinte flush
+     * @return le score de la combinaison cherchée sinon appelle isFourOfAKind()
+     */
     int isStraightFlush() {
         return (this.numberOfConsecutiveCards == 5 && this.Suit_table.contains(5)) ? Rankings.StraightFlush.getValue() : this.isFourOfAKind();
     }
 
-    //Cherche si on a un carré
+    /**
+     * Cherche si on a un carré
+     * @return le score de la combinaison cherchée sinon appelle isFullHouse()
+     */
     int isFourOfAKind() {
         return this.Rank_table.contains(4) ? Rankings.FourOfAKind.getValue() : this.isFullHouse();
     }
 
-    //Cherche si on a un full
+    /**
+     * Cherche si on a un full
+     * @return le score de la combinaison cherchée sinon appelle isFlush()
+     */
     int isFullHouse() {
         return (this.Rank_table.contains(3) && this.Rank_table.contains(2)) ? Rankings.FullHouse.getValue() : this.isFlush();
     }
 
-    //Cherche si on a une couleur
+    /**
+     * Cherche si on a une couleur
+     * @return le score de la combinaison cherchée sinon appelle isStraight()
+     */
     int isFlush() {
         return this.Suit_table.contains(5) ? Rankings.Flush.getValue() : this.isStraight();
     }
 
-    //Cherche si on a une suite
+    /**
+     * Cherche si on a une suite
+     * @return le score de la combinaison cherchée sinon appelle isThreeOfAKind()
+     */
     int isStraight() {
         return this.numberOfConsecutiveCards == 5 ? Rankings.Straight.getValue() : this.isThreeOfAKind();
     }
 
-    //Cherche si on a un brelan
+    /**
+     * Cherche si on a un brelan
+     * @return le score de la combinaison cherchée sinon appelle isTwoPair()
+     */
     int isThreeOfAKind() {
         return this.Rank_table.contains(3) ? Rankings.ThreeOfAKind.getValue() : this.isTwoPair();
     }
 
-    //Cherche si on a une double paire
+    /**
+     * Cherche si on a deux paires
+     * @return le score de la combinaison cherchée sinon appelle isPair()
+     */
     int isTwoPair() {
         int count = 0;
         for (Integer i : this.Rank_table) {
@@ -148,7 +191,10 @@ public class Combinaison {
         return count == 2 ? Rankings.TwoPair.getValue() : this.isPair();
     }
 
-    //Cherche si on a une paire
+    /**
+     * Cherche si on a une paire
+     * @return le score de la combinaison cherchée sinon 1
+     */
     int isPair() {
         return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
     }
@@ -181,14 +227,23 @@ public class Combinaison {
         return maxSubscore;
     }
 
+    /**
+     * @return le score de la main
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * @return le subscore de la main
+     */
     public int getSubscore() {
         return subscore;
     }
 
+    /**
+     * @return un string donnant le tableau de couleurs le tableau de rangs
+     */
     @Override
     public String toString() {
         return "{Suit_table=" + Suit_table + ", Rank_table=" + Rank_table + '}';

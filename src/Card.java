@@ -19,26 +19,44 @@ public class Card {
         this.force = this.rank.getValue();
     }
 
+    /**
+     * @return Le rang de la carte.
+     */
     public Rank getRank() {
         return this.rank;
     }
 
+    /**
+     * @return Le symbole de la carte.
+     */
     public Suit getSuit() {
         return this.suit;
     }
 
+    /**
+     * @return La force de la carte attribuée au rang.
+     */
     public int getForce() {
         return this.force;
     }
 
+    /**
+     * @return un string donnant une carte composé de son rang et de son symbole/couleur
+     */
     public String toString() {
         return "[" + this.rank + ", " + this.suit + "]";
     }
 
+    /**
+     * Compare la force de deux cartes
+     * @param c2 la carte a comparé
+     * @return le résultat de la soustraction de la force des deux cartes
+     */
     public int compareTo(Card c2) {
         return this.getForce() - c2.getForce();
     }
 
+    //???????????????????
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
