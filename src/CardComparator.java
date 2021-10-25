@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 /**
- * Classe permettant de comparer les cartes de poker.
+ * Classe permettant de cgiomparer les cartes de poker.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
