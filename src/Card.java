@@ -56,7 +56,9 @@ public class Card {
         return this.getForce() - c2.getForce();
     }
 
-    //???????????????????
+    /**
+     * @return un booléen qui dit si 2 cartes sont identiques
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj)

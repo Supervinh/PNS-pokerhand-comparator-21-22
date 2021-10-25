@@ -13,6 +13,10 @@ public enum Rank {
         this.value = value;
     }
 
+    /**
+     * @return Le valeur de la carte.
+     */
+
     public int getValue() {
         return this.value;
     }

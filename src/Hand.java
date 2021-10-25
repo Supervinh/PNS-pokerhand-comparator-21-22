@@ -68,6 +68,9 @@ public class Hand {
         return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking();
     }
 
+    /**
+     * @return Le message de victoire avec le nom du vainqueur et la façon dont il gagne
+     */
     public String handScoreAndSubscoreText() {
         return this.getName() + " with a " + this.C.getHandRanking() + ": " + Rank.rankFromScore(this.subscore);
     }

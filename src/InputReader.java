@@ -28,6 +28,11 @@ public class InputReader {
         return new ArrayList[]{ranks, suits};
     }
 
+    /**
+     * Crée le scanneur
+     * @return Le nom de la main.
+     */
+
     public static Rank typingRank() {
         System.out.print("Enter Rank: ");
         String input = CONSOLE.nextLine();

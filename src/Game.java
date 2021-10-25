@@ -8,16 +8,24 @@ import java.util.ArrayList;
  * @author Vinh Faucher
  */
 public class Game {
+    //rentre les deux mains dans une ArrayList
     private final ArrayList<Hand> hands;
+    //Initialise le deck
     public static Deck deck = new Deck();
+    //Indique le nombre de joueurs
     public static final int numberOfPlayers = 2;
+    //Indique le nombre de cartes par main
     public static final int numberOfCards = 5;
+    //Indique si on tire automatiquement les cartes
     public static final boolean automaticCards = false;
 
     public Game(ArrayList<Hand> hands) {
         this.hands = hands;
     }
 
+    /**
+     * Affiche la main gagnante ou égalité
+     */
     public void printWinner() {
         this.sortHands();
         Hand winner = this.hands.get(this.hands.size() - 1);
@@ -40,6 +48,9 @@ public class Game {
         }
     }
 
+    /**
+     * Si on a plusieurs joueurs, affiche le rang de chaque joueur
+     */
     public void showRankings() {
         this.sortHands();
         System.out.println("===Rankings===");
@@ -56,10 +67,16 @@ public class Game {
         System.out.println("==============");
     }
 
+    /**
+     * Trie les mains
+     */
     public void sortHands() {
         this.hands.sort(new HandComparator());
     }
 
+    /**
+     * ???????
+     */
     public String toString() {
         StringBuilder msg = new StringBuilder();
         for (Hand h : this.hands) {
