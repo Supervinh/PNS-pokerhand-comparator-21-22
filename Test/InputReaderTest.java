@@ -1,3 +1,10 @@
+/* Tests sur la classe InputReader
+ *
+ * @author Matis Herrmann
+ * @author Louis Hattiger
+ * @author Vinh Faucher
+ * */
+
 import org.junit.jupiter.api.*;
 
 
