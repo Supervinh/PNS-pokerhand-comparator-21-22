@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Classe permettant de crée un jeu de carte pour ensuite les piocher.
+ * Classe permettant de créer un jeu de carte pour ensuite les piocher.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
@@ -52,7 +52,7 @@ public class Deck {
     }
 
     /**
-     * Pioche classique pour créer une main en vérifiant que la carte n'a pas déjà été tiré
+     * Pioche classique pour créer une main en vérifiant que la carte n'a pas déjà été tirée
      * @return la carte c choisie si le deck contient la carte, null si le deck et vide et s'appelle elle même si la carte a déjà été piochée
      */
     public Card takeCard(Card c) {
@@ -61,7 +61,7 @@ public class Deck {
             System.exit(0);
             return null;
         }
-        // Si la carte est contenu dans le deck on la pioche sinon on demande de saisir une nouvelle carte
+        // Si la carte est contenue dans le deck on la pioche sinon on demande de saisir une nouvelle carte
         if (this.deck.contains(c)) {
             for (int i = 0; i < this.deck.size(); i++) {
                 if (this.deck.get(i).equals(c)) {

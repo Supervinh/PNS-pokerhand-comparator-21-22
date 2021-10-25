@@ -1,5 +1,5 @@
 /**
- * Classe permettant de crée des cartes de poker.
+ * Classe permettant de créer des cartes de poker.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
@@ -41,7 +41,7 @@ public class Card {
     }
 
     /**
-     * @return un string donnant une carte composé de son rang et de son symbole/couleur
+     * @return un string donnant une carte composée de son rang et de son symbole/couleur
      */
     public String toString() {
         return "[" + this.rank + ", " + this.suit + "]";
@@ -49,7 +49,7 @@ public class Card {
 
     /**
      * Compare la force de deux cartes
-     * @param c2 la carte a comparé
+     * @param c2 la carte à comparer
      * @return le résultat de la soustraction de la force des deux cartes
      */
     public int compareTo(Card c2) {

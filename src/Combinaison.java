@@ -242,7 +242,7 @@ public class Combinaison {
     }
 
     /**
-     * @return un string donnant le tableau de couleurs le tableau de rangs
+     * @return un string donnant le tableau de couleurs et le tableau de rangs
      */
     @Override
     public String toString() {

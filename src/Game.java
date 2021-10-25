@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- * Classe permettant de gerer le jeu et afficher les gagnants.
+ * Classe permettant de gérer le jeu et afficher les gagnants.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
