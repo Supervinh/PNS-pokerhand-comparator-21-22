@@ -17,7 +17,7 @@ public class Game {
     //Indique le nombre de cartes par main
     public static final int numberOfCards = 5;
     //Indique si on tire automatiquement les cartes
-    public static final boolean automaticCards = true;
+    public static final boolean automaticCards = false;
 
     public Game(ArrayList<Hand> hands) {
         this.hands = hands;
@@ -37,7 +37,7 @@ public class Game {
         }
         if (winners.size() > 1) {
             if (winners.size() == this.hands.size()) {
-                System.out.println("All round Draw");
+                System.out.print("All round Draw - ");
             }
             System.out.println("The Winners are: ");
         } else {
@@ -68,14 +68,14 @@ public class Game {
     }
 
     /**
-     * Trie les mains
+     * Trie les mains, order croissant.
      */
     public void sortHands() {
         this.hands.sort(new HandComparator());
     }
 
     /**
-     * ???????
+     * String composé de la liste des joueurs.
      */
     public String toString() {
         StringBuilder msg = new StringBuilder();

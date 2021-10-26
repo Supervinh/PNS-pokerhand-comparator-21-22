@@ -13,7 +13,7 @@ public class Deck {
     private ArrayList<Card> deck = new ArrayList<>();
 
     /**
-     * Constructeur de la classe, et initialise le packet de carte.
+     * Constructeur de la classe et initialise le packet de carte.
      */
     public Deck() {
         // Pour chaque rang on ajoute dans le deck tous les symboles de ce rang ie (pour 2 -> 2Co, 2Pi, 2Ca, 2Tr).

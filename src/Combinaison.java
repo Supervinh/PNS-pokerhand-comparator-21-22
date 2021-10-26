@@ -30,7 +30,7 @@ public class Combinaison {
      * Constructeur de cette classe, puis initialiser les tableaux d'occurrences, ainsi que le nombre de carte
      * consécutif et finir par attribuer un score et un sous score en fonction de la combinaison trouvé.
      *
-     * @param h La carte qu'on veut connaître sa combinaison.
+     * @param h La carte dont on veut connaître sa combinaison.
      */
     public Combinaison(Hand h) {
         this.h = h;
@@ -228,7 +228,7 @@ public class Combinaison {
     }
 
     /**
-     * Suivant le score de la main on utilise des méthodes différents pour calculer son sous score.
+     * Suivant le score de la main on utilise des méthodes différentes pour calculer son sous score.
      *
      * @return Le sous score de la main.
      */
@@ -244,7 +244,7 @@ public class Combinaison {
     }
 
     /**
-     * Method de calcule du sous score pour les mains qui nécessite de comparer les cartes un à un (Quinte/Couleur/Suite etc...).
+     * Methode de calcul du sous score pour les mains qui nécessite de comparer les cartes un à un (Quinte/Couleur/Suite etc...).
      *
      * @return La force de la carte la plus puissante de la main.
      */
@@ -253,9 +253,9 @@ public class Combinaison {
     }
 
     /**
-     * Method de calcule du sous score pour les mains composée de cartes de force identiques (Pair/Brelan/Carré etc...).
-     *
-     * @return La force de la carte qui appartient à une collections de cartes identiques.
+     * Method de calcul du sous score pour les mains composé de cartes de force identiques (Pair/Brelan/Carré etc...).
+     * @param n Le nombre de cartes identique.
+     * @return La force de la carte qui appartient à une collection de cartes identiques.
      */
     private int subscoreMethodN(int n) {
         int maxSubscore = 0;
