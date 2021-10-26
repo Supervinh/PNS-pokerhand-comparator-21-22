@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * Classe permettant de repérer les différentes combinaisons possibles dans une main et d'assigner une force à chaque combinaison, et une sous force en cas de différenciation.
+ * Classe permettant de repérer les différentes combinaisons possibles dans une main et d'assigner une force à chaque combinaison et une sous force en cas de différenciation.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
@@ -27,7 +27,7 @@ public class Combinaison {
     private final int subscore;
 
     /**
-     * Constructeur de cette classe, puis initialiser les tableaux d'occurrences, ainsi que le nombre de carte
+     * Constructeur de cette classe, puis initialiser les tableaux d'occurrences, ainsi que le nombre de cartes
      * consécutif et finir par attribuer un score et un sous score en fonction de la combinaison trouvé.
      *
      * @param h La carte dont on veut connaître sa combinaison.
@@ -116,7 +116,7 @@ public class Combinaison {
 
 
     /**
-     * En parcourant la liste des énumérations de Rankings on cherche celui qui as la même force que le score obtenue.
+     * En parcourant la liste des énumérations de Rankings on cherche celui qui as la même force que le score obtenu.
      *
      * @return Le type de combinaison de l'énumération.
      */

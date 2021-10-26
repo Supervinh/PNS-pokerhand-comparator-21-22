@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class PokerHand {
     public static void main(String[] args) {
 
-        // Ajout de n Joueurs avec leur mains de x cartes dans le Jeu.
+        // Ajout de n Joueurs avec leurs mains de x cartes dans le Jeu.
         ArrayList<Hand> players = new ArrayList<>();
         for (int i = 0; i < Game.numberOfPlayers; i++) {
             ArrayList<Card> cards = new ArrayList<>();

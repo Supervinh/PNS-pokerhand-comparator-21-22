@@ -16,7 +16,7 @@ public class Deck {
      * Constructeur de la classe et initialise le packet de carte.
      */
     public Deck() {
-        // Pour chaque rang on ajoute dans le deck tous les symboles de ce rang ie (pour 2 -> 2Co, 2Pi, 2Ca, 2Tr).
+        // Pour chaque rang on ajoute dans le deck tous les symboles de ce rang c'est-à-dire (pour 2 -> 2Co, 2Pi, 2Ca, 2Tr).
         for (Rank rank : Rank.values()) {
             for (Suit suit : Suit.values()) {
                 deck.add(new Card(rank, suit));

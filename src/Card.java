@@ -16,7 +16,7 @@ public class Card {
     private final int force;
 
     /**
-     * Constructeur de la classe. initialize la force de la carte.
+     * Constructeur de la classe. Initialise la force de la carte.
      *
      * @param r Le symbole de la carte.
      * @param s La couleur de la carte.
@@ -59,7 +59,7 @@ public class Card {
      * Compare la force de deux cartes.
      *
      * @param c2 La carte à comparer.
-     * @return La différence de force entre les des deux cartes.
+     * @return La différence de force entre les deux cartes.
      */
     public int compareTo(Card c2) {
         return this.getForce() - c2.getForce();
