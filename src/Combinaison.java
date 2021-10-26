@@ -254,6 +254,7 @@ public class Combinaison {
 
     /**
      * Method de calcul du sous score pour les mains composé de cartes de force identiques (Pair/Brelan/Carré etc...).
+     *
      * @param n Le nombre de cartes identique.
      * @return La force de la carte qui appartient à une collection de cartes identiques.
      */
