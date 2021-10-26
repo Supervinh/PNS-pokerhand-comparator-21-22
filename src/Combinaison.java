@@ -221,7 +221,7 @@ public class Combinaison {
     /**
      * Cherche si on a une paire.
      *
-     * @return le score de la combinaison cherchée sinon score de Rankings.HighCard.
+     * @return le score de la combinaison cherchée sinon score de HighCard.
      */
     public int isPair() {
         return this.Rank_table.contains(2) ? Rankings.Pair.getValue() : Rankings.HighCard.getValue();
@@ -244,7 +244,7 @@ public class Combinaison {
     }
 
     /**
-     * Methode de calcul du sous score pour les mains qui nécessite de comparer les cartes un à un (Quinte/Couleur/Suite etc...).
+     * Methode de calcul du sous score pour les mains qui nécessite de comparer les cartes un à un (Quinte/Couleur/Suite, etc.).
      *
      * @return La force de la carte la plus puissante de la main.
      */
@@ -253,7 +253,7 @@ public class Combinaison {
     }
 
     /**
-     * Method de calcul du sous score pour les mains composé de cartes de force identiques (Pair/Brelan/Carré etc...).
+     * Method de calcul du sous score pour les mains composé de cartes de force identiques (Pair/Brelan/Carré, etc.).
      *
      * @param n Le nombre de cartes identique.
      * @return La force de la carte qui appartient à une collection de cartes identiques.

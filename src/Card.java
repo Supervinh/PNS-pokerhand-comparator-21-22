@@ -66,7 +66,8 @@ public class Card {
     }
 
     /**
-     * @return un booléen qui dit si 2 cartes sont identiques.
+     * @param obj Un autre object avec qui on veut comparer.
+     * @return un booléen qui dit si deux cartes sont identiques.
      */
     @Override
     public boolean equals(Object obj) {
