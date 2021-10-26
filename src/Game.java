@@ -10,21 +10,30 @@ import java.util.ArrayList;
 public class Game {
     //rentre les deux mains dans une ArrayList
     private final ArrayList<Hand> hands;
+
     //Initialise le deck
     public static Deck deck = new Deck();
+
     //Indique le nombre de joueurs
     public static final int numberOfPlayers = 2;
+
     //Indique le nombre de cartes par main
     public static final int numberOfCards = 5;
+
     //Indique si on tire automatiquement les cartes
     public static final boolean automaticCards = false;
 
+    /**
+     * Constructeur de la class, et stocker la listes des joueurs dans le jeu.
+     *
+     * @param hands Liste des joueurs.
+     */
     public Game(ArrayList<Hand> hands) {
         this.hands = hands;
     }
 
     /**
-     * Affiche la main gagnante ou égalité
+     * Affiche la main gagnante ou égalité.
      */
     public void printWinner() {
         this.sortHands();
@@ -49,7 +58,7 @@ public class Game {
     }
 
     /**
-     * Si on a plusieurs joueurs, affiche le rang de chaque joueur
+     * Afficher le classement de tous les joueurs.
      */
     public void showRankings() {
         this.sortHands();
@@ -68,7 +77,7 @@ public class Game {
     }
 
     /**
-     * Trie les mains, order croissant.
+     * Trie les mains par order croissant.
      */
     public void sortHands() {
         this.hands.sort(new HandComparator());

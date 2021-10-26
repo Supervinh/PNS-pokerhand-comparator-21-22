@@ -81,14 +81,14 @@ public class Deck {
     }
 
     /**
-     * @return Le deck.
+     * @return La listes des cartes dans le Deck.
      */
     public ArrayList<Card> getDeck() {
         return deck;
     }
 
     /**
-     * @return Un string donnant le deck et le nombre de cartes.
+     * @return Un string donnant la listes des cartes et le nombre de cartes restant.
      */
     @Override
     public String toString() {
