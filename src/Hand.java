@@ -36,18 +36,30 @@ public class Hand {
         return cards.get(cards.size() - 1);
     }
 
+    /**
+     * @return Les cartes de la main.
+     */
     public ArrayList<Card> getCards() {
         return this.cards;
     }
 
+    /**
+     * @return Le score de la main.
+     */
     public int getScore() {
         return score;
     }
 
+    /**
+     * @return Le subscore de la main.
+     */
     public int getSubscore() {
         return subscore;
     }
 
+    /**
+     * @return Le nom de la main.
+     */
     public String getName() {
         return name;
     }
@@ -56,6 +68,9 @@ public class Hand {
         return this.name + ": " + this.cards + " \u25B6 " + this.C.getHandRanking();
     }
 
+    /**
+     * @return Le message de victoire avec le nom du vainqueur et la façon dont il gagne
+     */
     public String handScoreAndSubscoreText() {
         return this.getName() + " with a " + this.C.getHandRanking() + ": " + Rank.rankFromScore(this.subscore);
     }

@@ -1,7 +1,7 @@
 import java.util.Comparator;
 
 /**
- * Classe permettant de comparer deux mains de poker
+ * Classe permettant de comparer deux mains de poker, utilisé pour les Collections.sort().
  *
  * @author Matis Herrmann
  * @author Louis Hattiger

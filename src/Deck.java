@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * Classe permettant de crée un jeu de carte pour ensuite les piocher.
+ * Classe permettant de créer un jeu de carte pour ensuite les piocher.
  *
  * @author Matis Herrmann
  * @author Louis Hattiger
@@ -25,6 +25,9 @@ public class Deck {
         }
     }
 
+    /**
+     * Mélange le deck de manière aléatoire en utilisant un deck temporaire
+     */
     public void shuffleDeck() {
         Random rand = new Random();
         ArrayList<Card> tempDeck = new ArrayList<>();
@@ -35,7 +38,10 @@ public class Deck {
         this.deck = tempDeck;
     }
 
-    // mode de pioche automatique (pour pouvoir tester les tests plus rapidement)
+    /**
+     * Pioche automatique pour créer une main (pour pouvoir faire nos tests plus rapidement)
+     * @return la première carte du deck si le deck n'est pas vide sinon null.
+     */
     public Card drawCard() {
         if (!this.deck.isEmpty()) {
             return this.deck.remove(0);
@@ -45,14 +51,17 @@ public class Deck {
         return null;
     }
 
-    // mode de pioche classique
+    /**
+     * Pioche classique pour créer une main en vérifiant que la carte n'a pas déjà été tirée
+     * @return la carte c choisie si le deck contient la carte, null si le deck et vide et s'appelle elle même si la carte a déjà été piochée
+     */
     public Card takeCard(Card c) {
         if (this.deck.isEmpty()) {
             System.out.println("No more Cards - End of Game.");
             System.exit(0);
             return null;
         }
-        // Si la carte est contenu dans le deck on la pioche sinon on demande de saisir une nouvelle carte
+        // Si la carte est contenue dans le deck on la pioche sinon on demande de saisir une nouvelle carte
         if (this.deck.contains(c)) {
             for (int i = 0; i < this.deck.size(); i++) {
                 if (this.deck.get(i).equals(c)) {
@@ -65,12 +74,18 @@ public class Deck {
         return takeCard(new Card(InputReader.typingRank(), InputReader.typingSuit()));
     }
 
+    /**
+     * @return le deck
+     */
     public ArrayList<Card> getDeck() {
         return deck;
     }
 
+    /**
+     * @return un string donnant le deck et le nombre de cartes
+     */
     @Override
     public String toString() {
-        return "Deck " + deck + ", nbCards=" + deck.size();
+        return "Deck :" + deck + ", nbCards=" + deck.size();
     }
 }

@@ -13,6 +13,11 @@ public enum Rankings {
         this.value = v;
     }
 
+
+    /**
+     * @return La force de la main.
+     */
+
     public int getValue() {
         return value;
     }
