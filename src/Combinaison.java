@@ -275,7 +275,7 @@ public class Combinaison {
     }
 
     /**
-     * @return le subscore de la main
+     * @return Le subscore de la main.
      */
     public int getSubscore() {
         return subscore;
