@@ -10,8 +10,6 @@ La saisie des cartes peut se faire de manière Automatique ou Manuel.
 Le code détecte toutes les mains possibles du poker et est capable d'identifier le gagnant ou s'il y a égalité et puis les afficher.
 Et aussi dans le dossier Test se trouve les tests des classes java.
 
-Et ce code fonctionne aussi avec une interface de jeu qui se trouve se le checkout Visuel.
-
 ## Installation
 * git clone https://github.com/pns-si3-projects/dojo-poker-21-22-gd5.git
 * cd dojo-poker-21-22-gd5
@@ -41,16 +39,3 @@ Une main de poker est faite de 5 cartes. Dans le texte ci-dessous, les mains son
 ● Carré : 4 cartes de la même valeur, classement par la valeur des 4 cartes.
 
 ● Quinte Flush : 5 cartes de la même couleur avec des valeurs consécutives, classement par la carte la plus élevée dans la main.
-
-
-## Donnations
-On aime créer des programmes gratuitement. Si vous souhaitez donner de l'argent pour aider des étudiants comme nous, ce serait très apprécié !
-
-### Matis Herrmann
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/MatisHerrmann)
-
-### Louis Hattiger
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/LouisHattiger)
-
-### Vinh Faucher
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/VinhFaucher)
